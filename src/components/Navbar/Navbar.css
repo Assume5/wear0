@@ -1,0 +1,52 @@
+.navbar-collapse.show {
+    margin:3%;
+}
+.navbar-nav{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.navbar-collapse{
+    margin-left:5%
+}
+.navbar img{
+    margin-left:40px ;
+}
+.dropdown-toggle::after {
+     transition: transform 0.15s linear; 
+}
+   
+.show.dropdown .dropdown-toggle:after {
+    transform: translateY(3px);
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    height: auto;
+}
+.FontAwesomeIcon{
+    cursor: pointer;
+}
+.dropdown{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.navbar{
+    width:auto;
+    display: flex;
+    resize: both;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-toggler {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-nav-scroll{
+        margin:0;
+    }
+
+}

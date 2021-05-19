@@ -1,0 +1,54 @@
+.background {
+    margin-top: 3%;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 80vh; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #201d37;
+    display: flex;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    resize: both;
+} 
+.background_img{
+    margin: 3%;
+    object-fit: cover;
+    width: 1000px;
+
+}
+.item{
+    flex:auto
+}
+ h1,h5{
+    color: #fff;
+    margin-top: 3%;
+}
+.shop{
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+}
+.shop:hover{
+    top: -10px;
+}
+@media (max-width: 800px) {
+    .background{
+      flex-direction: column;
+    }
+    .item{
+        flex: auto;
+    }
+    .background_img{
+        margin: 0 auto;
+    }
+    .background_text{
+        margin-top:5%;
+    }
+  }
