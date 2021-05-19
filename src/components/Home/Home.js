@@ -1,5 +1,5 @@
 import Background from '../Background/Background'
-import ContentList from '../Content/ContentList'
+import ContentList from '../Content/HomeContentList'
 const test={
     productnameNewCollection:'KAWS HOLIDAY BROWN',
     productpriceNewCollection:"$225",

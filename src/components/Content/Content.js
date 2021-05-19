@@ -5,7 +5,7 @@ import {BrowserView, MobileView} from 'react-device-detect';
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-class HomeContent extends React.Component{
+class Content extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -51,7 +51,7 @@ class HomeContent extends React.Component{
         )
     }
 }
-export default HomeContent
+export default Content
 
 
 
