@@ -21,6 +21,7 @@ import Profile from './components/Account/Profile/Profile'
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import BackgroundAccount from './components/Account/BackgroundAccount/BackgroundAccount'
+import Cart from './components/Cart/Cart'
 class App extends React.Component {
   constructor(){
     super()
@@ -51,11 +52,18 @@ class App extends React.Component {
       }
     }
   }
-
+  onUserShoppingBagClick=()=>{
+    if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/") ) {
+      window.location='../cart'
+    }
+    else{
+      window.location='./cart'
+    }
+  }
   render(){
     return (
       <div className="App">
-        <Navbar onUserIconClick={this.onUserIconClick}/>
+        <Navbar onUserIconClick={this.onUserIconClick} onUserShoppingBagClick={this.onUserShoppingBagClick}/>
         <BrowserRouter>
           <Switch>                
                  <Route exact path='/' component={Home}/>  
@@ -74,7 +82,9 @@ class App extends React.Component {
                  <Route path='/sale/kids' component={KidsSale}/>       
                  <Route path='/signup' component={()=><BackgroundAccount h5Txt={'Register Page!'} h1Txt={'Join Us!'} route={'register'}  />}/>
                  <Route path='/login' component={()=><BackgroundAccount h5Txt={'Login Page!'} h1Txt={'We Miss You!'} route={'login'}  />}/>
-                 {/* <Route path='/profile' component={Profile}/>    */}
+                 <Route path='/profile' component={Profile}/>
+                 <Route path='/cart' component={()=><Cart/>}/>
+                 
           </Switch>
         </BrowserRouter>
       </div>

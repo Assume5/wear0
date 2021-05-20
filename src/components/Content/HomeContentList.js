@@ -156,7 +156,7 @@ class HomeContentList extends Component{
                     }
                     <div className="bottom_tittle" id="homeNewcollectionEnd">
                         <hr></hr>
-                            <Button className="m-4 br4 shadow-3 grow" href="/new"><FontAwesomeIcon className="FontAwesomeIcon" size="2x"icon={faShoppingCart}/> <h5> Shop More</h5></Button>
+                            <Button variant="dark"  className="shop m-3 shadow-3 grow" href="/new"><FontAwesomeIcon className="FontAwesomeIcon"icon={faShoppingCart}/>Shop More</Button>
                     </div>
 
                 </div>
@@ -182,9 +182,9 @@ class HomeContentList extends Component{
                     }
                     <div className="bottom_tittle" >
                         <hr></hr>
-                        <Button className="shop m-3 shadow-3 grow" href="./men/apparel" id="homeTrendingApparelEnd"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Men</Button>
-                        <Button className="shop m-3 shadow-3 grow" href="./women/apparel"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Women</Button>
-                        <Button className="shop m-3 shadow-3 grow" href="./kids/apparel"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Kids</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./men/apparel" id="homeTrendingApparelEnd"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Men</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./women/apparel"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Women</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./kids/apparel"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Kids</Button>
                     </div>
 
                 </div>
@@ -209,9 +209,9 @@ class HomeContentList extends Component{
                     }
                     <div className="bottom_tittle" >
                         <hr></hr>
-                        <Button className="shop m-3 shadow-3 grow" href="./men/footwear" id="homeTrendingFootwearEnd"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Men</Button>
-                        <Button className="shop m-3 shadow-3 grow" href="./women/footwear"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Women</Button>
-                        <Button className="shop m-3 shadow-3 grow" href="./kids/footwear"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Kids</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./men/footwear" id="homeTrendingFootwearEnd"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Men</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./women/footwear"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Women</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./kids/footwear"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Kids</Button>
                     </div>
                 </div>
                 <div className="Content" id="homeTrendingAccessories">
@@ -235,8 +235,8 @@ class HomeContentList extends Component{
                     }
                     <div className="bottom_tittle" >
                         <hr></hr>
-                        <Button className="shop m-3 shadow-3 grow" href="./men/accessories" id="homeTrendingAccessoriesEnd"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Men</Button>
-                        <Button className="shop m-3 shadow-3 grow" href="./women/accessories"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Women</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./men/accessories" id="homeTrendingAccessoriesEnd"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Men</Button>
+                        <Button variant="dark" className="shop m-3 shadow-3 grow" href="./women/accessories"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop Women</Button>
                     </div>
                 </div>
             </div>

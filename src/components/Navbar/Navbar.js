@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import {Animated} from "react-animated-css";
 import React from 'react';
-function navbar({onUserIconClick}){
+function navbar({onUserIconClick,onUserShoppingBagClick}){
     return(
-    <>
+    <>  
         <Navbar bg="light" expand="lg" fixed="top">
             <Navbar.Brand href="/">
                 <img src={logo_icon} alt="logo" width="100px" height="auto"/>
@@ -56,7 +56,7 @@ function navbar({onUserIconClick}){
                 </Animated>
               </NavDropdown>
             </Nav>
-            <FontAwesomeIcon  className="mx-4 FontAwesomeIcon" icon={faShoppingBag} size="2x"/>
+            <FontAwesomeIcon  onClick={onUserShoppingBagClick} className="mx-4 FontAwesomeIcon" icon={faShoppingBag} size="2x"/>
             <FontAwesomeIcon onClick={onUserIconClick} className="mx-4 FontAwesomeIcon" icon={faUser} size="2x"/>
             <Form className="d-flex mx-3">
               <FormControl
@@ -66,7 +66,7 @@ function navbar({onUserIconClick}){
                 aria-label="Search"
                 id="input_search"
               />
-              <Button><FontAwesomeIcon className="mx-4 FontAwesomeIcon" icon={faSearch}/></Button>
+              <Button variant="dark"><FontAwesomeIcon className="mx-4 FontAwesomeIcon" icon={faSearch}/></Button>
             </Form>
           </Navbar.Collapse>
         </Navbar>

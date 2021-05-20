@@ -30,16 +30,16 @@ function Background({backGroundImgLink,route,h5Txt,h1Txt}){
                     <div>
                         <BrowserView>
                             <Animated animationIn="fadeInLeft" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
-                                <Button className="shop mx-2" href="./sale/men"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP MEN</Button>
-                                <Button className="shop mx-2" href="./sale/women"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP WOMEN</Button><br></br><br></br>
-                                <Button className="shop mx-2" href="./sale/kids"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP KIDS</Button>
+                                <Button variant="light" className="shop mx-2" href="./sale/men"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP MEN</Button>
+                                <Button variant="light"className="shop mx-2" href="./sale/women"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP WOMEN</Button><br></br><br></br>
+                                <Button variant="light"className="shop mx-2" href="./sale/kids"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP KIDS</Button>
                             </Animated>
                         </BrowserView>
                         <MobileView>
                             <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
-                                <Button className="shop mx-2" href="./sale/men"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP MEN</Button>
-                                <Button className="shop mx-2" href="./sale/women"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP WOMEN</Button><br></br><br></br>
-                                <Button className="shop mx-2" href="./sale/kids"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP KIDS</Button>
+                                <Button variant="light"className="shop mx-2" href="./sale/men"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP MEN</Button>
+                                <Button variant="light"className="shop mx-2" href="./sale/women"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP WOMEN</Button><br></br><br></br>
+                                <Button variant="light"className="shop mx-2" href="./sale/kids"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  SHOP KIDS</Button>
                             </Animated>
                         </MobileView>
                     </div>

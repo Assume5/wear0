@@ -24,25 +24,25 @@ class Content extends React.Component{
         return(
             <div className="item_content">
                         <BrowserView>
-                            <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={1500} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
+                            <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={850} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
                                     <img src={this.state.img} alt={productalt} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}/>
                                     <div className="container">
                                         <h5>{productname}</h5>  
                                         <p>{productprice}</p> 
-                                        <Button className="m-4 br4 shadow-3"><FontAwesomeIcon  className="FontAwesomeIcon" icon={faShoppingCart}/> Add To Cart</Button>
+                                        <Button variant="light" className="m-4 br4 shadow-3"><FontAwesomeIcon  className="FontAwesomeIcon" icon={faShoppingCart}/> Add To Cart</Button>
                                     </div>
                                 </div>
                             </Animated>
                         </BrowserView>
                         <MobileView>
-                            <Animated animationIn="fadeInUp" animationOut="fadeOut" animationInDuration={2500} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
+                            <Animated animationIn="fadeInUp" animationOut="fadeOut" animationInDuration={2000} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
                                     <img src={productimage} alt={productalt}/>
                                     <div className="container">
                                         <h5>{productname}</h5>  
                                         <p>{productprice}</p> 
-                                        <Button className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Cart</Button>
+                                        <Button variant="light" className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Cart</Button>
                                     </div>
                                 </div>
                             </Animated>
