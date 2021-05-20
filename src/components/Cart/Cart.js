@@ -2,6 +2,8 @@ import './Cart.css'
 import {Button} from 'react-bootstrap';
 import CartItem from './CartItem'
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 class Cart extends React.Component{
     constructor(props){
         super(props)
@@ -32,19 +34,41 @@ class Cart extends React.Component{
             this.setState({
                 testing:products
             })
-            this.setState({totalItem:Object.keys(products).length})
-            this.setState({loaded:true})
             let sumPrice=0;
+            let sumTotalItem=0;
             Object.keys(products).map((product,i)=>{
-               return sumPrice=sumPrice+products[product].total*products[product].quantity
+                sumPrice=sumPrice+products[product].total*products[product].quantity
+                return sumTotalItem+=products[product].quantity
             })
+            this.setState({totalItem:sumTotalItem})
+            this.setState({loaded:true})
             this.setState({totalPrice:sumPrice})
         }
     }
       
     onRemoveClick=(id)=>{
+        const quantityRemove=this.state.testing[id].quantity
         delete this.state.testing[id]
-        this.setState({totalItem:this.state.totalItem-1})
+        this.setState({totalItem:this.state.totalItem-quantityRemove})
+    }
+    onIncreaseClick=(id)=>{
+        const testingId=this.state.testing[id]
+        if(testingId.quantity<9){
+            this.state.testing[id].quantity+=1;
+            this.setState({totalItem:this.state.totalItem+1})
+            this.setState({totalPrice:this.state.totalPrice+testingId.total})
+        }
+    }
+    onDecreaseClick=(id)=>{
+        const testingId=this.state.testing[id]
+        if(testingId.quantity>0){
+            this.state.testing[id].quantity-=1;
+            this.setState({totalItem:this.state.totalItem-1})
+            this.setState({totalPrice:this.state.totalPrice-testingId.total})
+            if(this.state.testing[id].quantity===0){
+                delete this.state.testing[id]
+            }
+        }
     }
 
     render(){
@@ -82,6 +106,8 @@ class Cart extends React.Component{
                                 quantity={testing[product].quantity}
                                 total={testing[product].total}
                                 onRemoveClick={this.onRemoveClick}
+                                onIncreaseClick={this.onIncreaseClick}
+                                onDecreaseClick={this.onDecreaseClick}
                             />
                             )
                         })
@@ -96,9 +122,10 @@ class Cart extends React.Component{
                 </div>)
                 : //if no items
                             (     
-                            <div className="CartContainer ">
+                            <div className="" style={{marginTop:"20%"}}>
                                 <div className="Header f5">
                                     <p>YOUR CART IS EMPTY</p>
+                                    <Button variant="dark" className="shop mx-2" href="./"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/>  Shop our product</Button>
                                 </div>
                             </div>
                             )

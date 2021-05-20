@@ -57,3 +57,20 @@ div .CartItemHeading h5{
     0% {opacity:0;}
     100% {opacity:1;}
   }
+@media (max-width: 800px) {
+    .CartContainer{
+      flex-direction: column;
+    }
+    .CartContainer .Header{
+        color:#201d37;
+        margin-top: 23%;
+        margin-bottom:15px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+    .CartContainer .Header{
+        color:#201d37;
+        margin-top: 20%;
+        margin-bottom:15px;
+    }
+}

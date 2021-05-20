@@ -1,7 +1,7 @@
 import './Background.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Button } from 'react-bootstrap';
 import {Animated} from "react-animated-css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import {BrowserView, MobileView} from 'react-device-detect';
 import Login from '../Account/Login/Login'

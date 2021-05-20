@@ -1,12 +1,12 @@
 import React from 'react'
 import {Button, Form} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLessThan, faGreaterThan } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 import {BrowserView, MobileView} from 'react-device-detect';
 class CartItem extends React.Component{
     render()
     {
-        const {productid,productimage,productname,quantity,total,onRemoveClick} = this.props
+        const {productid,productimage,productname,quantity,total,onRemoveClick,onIncreaseClick,onDecreaseClick} = this.props
         return(
             <div className="CartContent center" id={productid}>
                 <div className="CartItem">
@@ -15,23 +15,21 @@ class CartItem extends React.Component{
                 </div>
                 <div className="CartItem" >
                     <BrowserView>
-                        <Button variant="light" size="sm" className=" grow br3"><FontAwesomeIcon className="FontAwesomeIcon" icon={faLessThan}/></Button>
+                        <hr></hr>
+                        <Button variant="light" size="sm" className=" grow br3" onClick={()=>onDecreaseClick(productid) }><FontAwesomeIcon className="FontAwesomeIcon" icon={faMinusSquare}/></Button>
                         <p className="br3 ba b--black-10 mv4 w-10 mw6 center" style={{display:'inline-block',margin:"30px"}}>{quantity}</p>
-                        <Button variant="light" size="sm" className="grow br3"><FontAwesomeIcon className="FontAwesomeIcon"  icon={faGreaterThan}/></Button>
+                        <Button variant="light" size="sm" className="grow br3" onClick={()=>onIncreaseClick(productid)} ><FontAwesomeIcon className="FontAwesomeIcon"  icon={faPlusSquare}/></Button>
                         <p className="f6 link dim black db pointer black" onClick={()=>onRemoveClick(productid)}>REMOVE</p>
+                        <hr></hr>
                     </BrowserView>
                     <MobileView>
-                        <Form>
-                        <Form.Group controlId="exampleForm.SelectCustom">
-                            <Form.Control as="select" custom   defaultValue={quantity}>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            </Form.Control>
-                        </Form.Group>
-                        </Form>
+                        <hr></hr>
+                        <Button variant="light" size="sm" className=" grow br3" onClick={()=>onDecreaseClick(productid) }><FontAwesomeIcon className="FontAwesomeIcon" icon={faMinusSquare}/></Button>
+                        <p className="br3 ba b--black-10 mv4 w-20 mw6 center" style={{display:'inline-block',margin:"30px"}}>{quantity}</p>
+                        <Button variant="light" size="sm" className=" grow br3" onClick={()=>onIncreaseClick(productid)} ><FontAwesomeIcon className="FontAwesomeIcon"  icon={faPlusSquare}/></Button>
+                        <p className="f6 link dim black db pointer black" onClick={()=>onRemoveClick(productid)}>REMOVE</p>
+                        <hr></hr>
+
                     </MobileView>
                 </div>
                 <div className="CartItem">
