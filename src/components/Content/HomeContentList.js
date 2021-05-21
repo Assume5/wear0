@@ -16,11 +16,11 @@ class HomeContentList extends Component{
     }
     componentDidMount() {
         window.addEventListener('scroll', this.listenToScroll)
-      }
+    }
       
-      componentWillUnmount() {
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.listenToScroll)
-      }
+    }
       
       listenToScroll = () => {
         //////////////////////////////////////////// New collection ////////////////////////////////////////////  
@@ -131,10 +131,14 @@ class HomeContentList extends Component{
             //////////////////////////////////////////// Trending Apparel ////////////////////////////////////////////  
 
       }
+    onProductCardClick=(id)=>{
+        console.log(id)
+        window.location="/productdetails/"+id
+    }
     render(){
         const {productdetailsNewCollection,productdetailsTrending} = this.props
-        const {productnameNewCollection,productpriceNewCollection,productimageNewCollection,productimageNewCollectionHover,productaltNewCollection}=productdetailsNewCollection
-        const {productnameTrending,productpriceTrending,productimageTrending,productimageTrendingHover,productaltTrending}=productdetailsTrending
+        const {productNewCollectionId,productnameNewCollection,productpriceNewCollection,productimageNewCollection,productimageNewCollectionHover,productaltNewCollection,productstockNewCollection}=productdetailsNewCollection
+        const {productTrendingId,productnameTrending,productpriceTrending,productimageTrending,productimageTrendingHover,productaltTrending,productstockTrending}=productdetailsTrending
         return(
             <div>
                 <div className="Content" id="homeNewcollectionContent">
@@ -144,13 +148,17 @@ class HomeContentList extends Component{
                     </div>
                     {
                         [...Array(5)].map((x, i) =>
-                            <Content productname={productnameNewCollection}
+                            <Content 
+                                productid={productNewCollectionId}
+                                productname={productnameNewCollection}
                                 productprice={productpriceNewCollection}
                                 productimage={productimageNewCollection}
                                 productalt={productaltNewCollection}
                                 isPosition = {this.state.isPositionNewCollection}
                                 productimageHover={productimageNewCollectionHover}
                                 animationDelay={100+i*500}
+                                onProductCardClick={this.onProductCardClick}
+                                prodcutstock={productstockNewCollection}
                             />
                         )
                     }
@@ -169,6 +177,7 @@ class HomeContentList extends Component{
                     {
                         [...Array(5)].map((x, i) =>
                             <Content 
+                                productid={productTrendingId}
                                 productname={productnameTrending} 
                                 productprice={productpriceTrending} 
                                 productimage={productimageTrending} 
@@ -176,7 +185,8 @@ class HomeContentList extends Component{
                                 isPosition = {this.state.isPositionHomeTrendingApparel}
                                 productimageHover={productimageTrendingHover}
                                 animationDelay={100+i*500}
-
+                                onProductCardClick={this.onProductCardClick}
+                                productstock={productstockTrending}
                             />
                         )
                     }

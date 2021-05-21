@@ -22,6 +22,7 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import BackgroundAccount from './components/Account/BackgroundAccount/BackgroundAccount'
 import Cart from './components/Cart/Cart'
+import ProductDetails from './components/ProductDetails/ProductDetails'
 class App extends React.Component {
   constructor(){
     super()
@@ -36,7 +37,7 @@ class App extends React.Component {
 
   onUserIconClick=()=>{
     if(this.state.user.login===false){
-      if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/") ) {
+      if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/")||document.URL.includes("/productdetails/") ) {
         window.location='../login'
       }
       else{
@@ -44,7 +45,7 @@ class App extends React.Component {
       }
     }
     else{
-      if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/") ) {
+      if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/")||document.URL.includes("/productdetails/") ) {
         window.location='../profile'
       }
       else{
@@ -53,7 +54,7 @@ class App extends React.Component {
     }
   }
   onUserShoppingBagClick=()=>{
-    if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/") ) {
+    if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/")||document.URL.includes("/productdetails/") ) {
       window.location='../cart'
     }
     else{
@@ -84,7 +85,8 @@ class App extends React.Component {
                  <Route path='/login' component={()=><BackgroundAccount h5Txt={'Login Page!'} h1Txt={'We Miss You!'} route={'login'}  />}/>
                  <Route path='/profile' component={Profile}/>
                  <Route path='/cart' component={()=><Cart/>}/>
-                 
+                 <Route path='/productdetails' component={ProductDetails}/>
+
           </Switch>
         </BrowserRouter>
       </div>

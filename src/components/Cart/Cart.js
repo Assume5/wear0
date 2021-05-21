@@ -18,7 +18,7 @@ class Cart extends React.Component{
         //if i fetch information form server
         const products={
             "1-45":{
-                productimage:"./TestingImage/brown.jpg",
+                productimage:"./TestingImage/brown.png",
                 productname:"Kaws Brown",
                 quantity:1,
                 total:100
@@ -70,6 +70,9 @@ class Cart extends React.Component{
             }
         }
     }
+    onProductImageClick=(id)=>{
+        window.location="./productdetails/"+id
+    }
 
     render(){
         const {testing} = this.state
@@ -108,6 +111,7 @@ class Cart extends React.Component{
                                 onRemoveClick={this.onRemoveClick}
                                 onIncreaseClick={this.onIncreaseClick}
                                 onDecreaseClick={this.onDecreaseClick}
+                                onProductImageClick={this.onProductImageClick}
                             />
                             )
                         })

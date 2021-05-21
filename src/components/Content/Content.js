@@ -20,30 +20,40 @@ class Content extends React.Component{
         this.setState({img: this.props.productimage});
     }
     render(){
-        const {productname,productprice,productimage,productalt, isPosition,animationDelay} = this.props
+        const {productid,productname,productprice,productimage,productalt,productstock, isPosition,animationDelay,onProductCardClick} = this.props
         return(
-            <div className="item_content">
+            <div className="item_content" >
                         <BrowserView>
                             <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={850} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
+                                    <div className="container" onClick={()=>onProductCardClick(productid)}>
                                     <img src={this.state.img} alt={productalt} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}/>
-                                    <div className="container">
                                         <h5>{productname}</h5>  
                                         <p>{productprice}</p> 
-                                        <Button variant="light" className="m-4 br4 shadow-3"><FontAwesomeIcon  className="FontAwesomeIcon" icon={faShoppingCart}/> Add To Cart</Button>
                                     </div>
+                                    {
+                                        productstock>0?
+                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Add To Cart</Button>
+                                        :
+                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px" style={{cursor:"no-drop"}}>OUT OF STOCK</Button>
+                                    }
                                 </div>
                             </Animated>
                         </BrowserView>
                         <MobileView>
                             <Animated animationIn="fadeInUp" animationOut="fadeOut" animationInDuration={2000} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
-                                    <img src={productimage} alt={productalt}/>
-                                    <div className="container">
+                                    <div className="container" onClick={()=>onProductCardClick(productid)}>
+                                        <img src={productimage} alt={productalt}/>
                                         <h5>{productname}</h5>  
                                         <p>{productprice}</p> 
-                                        <Button variant="light" className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Cart</Button>
                                     </div>
+                                    {
+                                        productstock>0?
+                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Cart</Button>
+                                        :
+                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px" style={{cursor:"no-drop"}}>OUT OF STOCK</Button>
+                                    }
                                 </div>
                             </Animated>
                         </MobileView>

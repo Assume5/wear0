@@ -1,18 +1,22 @@
 import Background from '../Background/Background'
 import ContentList from '../Content/HomeContentList'
 const test={
+    productNewCollectionId:"1-45",
     productnameNewCollection:'KAWS HOLIDAY BROWN',
     productpriceNewCollection:"$225",
-    productimageNewCollection:'././TestingImage/brown.jpg',
+    productimageNewCollection:'././TestingImage/brown.png',
     productimageNewCollectionHover:'./TestingImage/brownturn.png',
-    productaltNewCollection:'KAWS'
+    productaltNewCollection:'KAWS',
+    productstockNewCollection:0
 }
 const test2={
+    productTrendingId:"1-47",
     productnameTrending:'KAWS HOLIDAY BLACK',
     productpriceTrending:"$225",
     productimageTrending:'././TestingImage/black.png',
     productimageTrendingHover:'./TestingImage/blackturn.png',
-    productaltTrending:'KAWS'
+    productaltTrending:'KAWS',
+    productstockTrending:1
 }
 function Home(){
     return(
