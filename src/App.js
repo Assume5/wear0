@@ -84,8 +84,8 @@ class App extends React.Component {
                  <Route path='/signup' component={()=><BackgroundAccount h5Txt={'Register Page!'} h1Txt={'Join Us!'} route={'register'}  />}/>
                  <Route path='/login' component={()=><BackgroundAccount h5Txt={'Login Page!'} h1Txt={'We Miss You!'} route={'login'}  />}/>
                  <Route path='/profile' component={Profile}/>
-                 <Route path='/cart' component={()=><Cart/>}/>
-                 <Route path='/productdetails' component={ProductDetails}/>
+                 <Route path='/cart' component={()=><Cart user={this.state.user}/>}/>
+                 <Route path='/productdetails' component={()=><ProductDetails user={this.state.user}/>}/>
 
           </Switch>
         </BrowserRouter>

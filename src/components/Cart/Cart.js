@@ -74,6 +74,16 @@ class Cart extends React.Component{
         window.location="./productdetails/"+id
     }
 
+    onCheckoutClick=()=>{
+        if(this.props.user.login){ //if user didnt login
+            //redirect to checkout page
+        }
+        else{
+            //redirect to login page
+            window.location="./login"
+        }
+    }
+
     render(){
         const {testing} = this.state
         return !this.state.loaded //if not loaded yet
@@ -120,7 +130,7 @@ class Cart extends React.Component{
                         <hr></hr>
                         <div className="CartRecap">
                             <p>Total: ${this.state.totalPrice}</p>
-                            <Button size="md" variant="dark" className="shadow-5 grow br3">Checkout</Button>
+                            <Button size="md" variant="dark" className="shadow-5 grow br3" onClick={this.onCheckoutClick}>Checkout</Button>
                         </div>
                     </div>
                 </div>)

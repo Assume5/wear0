@@ -56,7 +56,10 @@ function navbar({onUserIconClick,onUserShoppingBagClick}){
                 </Animated>
               </NavDropdown>
             </Nav>
-            <FontAwesomeIcon  onClick={onUserShoppingBagClick} className="mx-4 FontAwesomeIcon" icon={faShoppingBag} size="2x"/>
+            <div class="icon-wrapper">
+              <FontAwesomeIcon  onClick={onUserShoppingBagClick} className="mx-4 FontAwesomeIcon hasBadge" icon={faShoppingBag} size="2x"/>
+               <span class="badge">0</span>
+            </div>
             <FontAwesomeIcon onClick={onUserIconClick} className="mx-4 FontAwesomeIcon" icon={faUser} size="2x"/>
             <Form className="d-flex mx-3">
               <FormControl

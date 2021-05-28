@@ -1,9 +1,10 @@
 import './ProductDetails.css'
 import ProductSizeList from './ProductSizeList'
 import React from 'react'
+import {Animated} from 'react-animated-css'
 class ProductDetails extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             productDetails:{},
             currentSizeClick:0,
@@ -25,6 +26,7 @@ class ProductDetails extends React.Component{
                 productColor:"Brown",
                 productMaterial:"Vinyl",
                 productDesc:"KAWS BROWN LIMITED EDITION!",
+                productPrice:100,
                 productCategory:"Accessories",
                 stock:{
                     3:0,
@@ -55,6 +57,7 @@ class ProductDetails extends React.Component{
                 productColor:"Black",
                 productMaterial:"Vinyl",
                 productDesc:"KAWS BLACK LIMITED EDITION!",
+                productPrice:100,
                 productCategory:"Accessories",
                 stock:0
             }
@@ -71,26 +74,36 @@ class ProductDetails extends React.Component{
         this.setState({currentSizeClick:size})
         document.getElementById(size).style.backgroundColor="black"
     }
+    onAddToCartClick=()=>{
+        console.log(this.props.user)
+        if(this.props.user.login){ //if user then store in cart table
+
+        }
+        else{ //store in gust cart table
+
+        }
+    }
     render(){
         if(this.state.loaded){
             const productDetails = this.state.productDetails
             return(
                 <div className="ProductDetailContainer">
                     <div className="ProductImageContainer">
-                        <img alt="" src={productDetails.productImg1}/>
-                        <img alt="" src={productDetails.productImg2}/>
-                        <img alt="" src={productDetails.productImg3}/>
-                        <img alt="" src={productDetails.productImg4}/>
+                            <img className="in-left" alt="" src={productDetails.productImg1}/>
+                            <img className="in-left2" alt="" src={productDetails.productImg2}/>
+                            <img className="in-left3" alt="" src={productDetails.productImg3}/>
+                            <img className="in-left4" alt="" src={productDetails.productImg4}/>
                     </div>
                     <div className="ProductInfoContainer">
                         <h6 className="f3 header">{productDetails.productName}</h6>
+                        <p className="f5">{productDetails.productDesc}</p>
                         <hr/>
                         <div className="InfoDetails"> 
                             <h6 className="f4" style={{marginBottom:"4%"}}>SPECIFICATION:</h6>
                             <p className="f5">Color : {productDetails.productColor}</p>
                             <p className="f5">Material : {productDetails.productMaterial}</p>
-                            <p className="f5">Detail : {productDetails.productDesc}</p>
                             <p className="f5">Category : {productDetails.productCategory}</p>
+                            <h6 className="f5">Price : ${productDetails.productPrice}</h6>
                         </div>
                         {
                             productDetails.productSize!=="OneSize"?
@@ -103,6 +116,7 @@ class ProductDetails extends React.Component{
                                             className="b ph3 pv2 input-reset ba w-60 b--black bg-transparent grow pointer f6 dib black"
                                             type="button"
                                             value="Add To Cart"
+                                            onClick={this.onAddToCartClick}
                                         />
                                         :
                                             <input style={{marginTop:"5%" ,cursor:"no-drop"}}
@@ -119,6 +133,7 @@ class ProductDetails extends React.Component{
                                     className="b ph3 pv2 input-reset ba w-60 b--black bg-transparent grow pointer f6 dib black"
                                     type="button"
                                     value="Add To Cart"
+                                    onClick={this.onAddToCartClick}
                                     />
                                 :
                                     <input style={{marginTop:"5%" ,cursor:"no-drop"}}

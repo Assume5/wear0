@@ -156,9 +156,9 @@ class HomeContentList extends Component{
                                 productalt={productaltNewCollection}
                                 isPosition = {this.state.isPositionNewCollection}
                                 productimageHover={productimageNewCollectionHover}
-                                animationDelay={100+i*500}
+                                animationDelay={100+i*300}
                                 onProductCardClick={this.onProductCardClick}
-                                prodcutstock={productstockNewCollection}
+                                productstock={productstockNewCollection}
                             />
                         )
                     }

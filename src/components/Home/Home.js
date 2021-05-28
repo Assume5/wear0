@@ -7,7 +7,7 @@ const test={
     productimageNewCollection:'././TestingImage/brown.png',
     productimageNewCollectionHover:'./TestingImage/brownturn.png',
     productaltNewCollection:'KAWS',
-    productstockNewCollection:0
+    productstockNewCollection:1
 }
 const test2={
     productTrendingId:"1-47",
@@ -16,7 +16,7 @@ const test2={
     productimageTrending:'././TestingImage/black.png',
     productimageTrendingHover:'./TestingImage/blackturn.png',
     productaltTrending:'KAWS',
-    productstockTrending:1
+    productstockTrending:0
 }
 function Home(){
     return(

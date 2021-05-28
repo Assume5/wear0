@@ -24,7 +24,7 @@ class Content extends React.Component{
         return(
             <div className="item_content" >
                         <BrowserView>
-                            <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={850} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
+                            <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={800} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
                                     <div className="container" onClick={()=>onProductCardClick(productid)}>
                                     <img src={this.state.img} alt={productalt} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}/>
@@ -33,7 +33,7 @@ class Content extends React.Component{
                                     </div>
                                     {
                                         productstock>0?
-                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Add To Cart</Button>
+                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px" onClick={()=>onProductCardClick(productid)} ><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> View Detail</Button>
                                         :
                                         <Button variant="dark" className="m-4 br4 shadow-3" width="10px" style={{cursor:"no-drop"}}>OUT OF STOCK</Button>
                                     }
@@ -50,7 +50,7 @@ class Content extends React.Component{
                                     </div>
                                     {
                                         productstock>0?
-                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px"><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> Cart</Button>
+                                        <Button variant="dark" className="m-4 br4 shadow-3" width="10px" onClick={()=>onProductCardClick(productid)} ><FontAwesomeIcon className="FontAwesomeIcon" icon={faShoppingCart}/> View</Button>
                                         :
                                         <Button variant="dark" className="m-4 br4 shadow-3" width="10px" style={{cursor:"no-drop"}}>OUT OF STOCK</Button>
                                     }
