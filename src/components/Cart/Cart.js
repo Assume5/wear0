@@ -75,13 +75,15 @@ class Cart extends React.Component{
     }
 
     onCheckoutClick=()=>{
-        if(this.props.user.login){ //if user didnt login
-            //redirect to checkout page
-        }
-        else{
-            //redirect to login page
-            window.location="./login"
-        }
+        // if(this.props.user.login){ //if user didnt login
+        //     //redirect to checkout page
+        //     window.location="./checkout"
+        // }
+        // else{
+        //     //redirect to login page
+        //     window.location="./login"
+        // }
+        window.location="./checkout"
     }
 
     render(){

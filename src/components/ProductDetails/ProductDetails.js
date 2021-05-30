@@ -1,7 +1,6 @@
 import './ProductDetails.css'
 import ProductSizeList from './ProductSizeList'
 import React from 'react'
-import {Animated} from 'react-animated-css'
 class ProductDetails extends React.Component{
     constructor(props){
         super(props)

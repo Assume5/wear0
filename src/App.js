@@ -23,6 +23,7 @@ import Navbar from './components/Navbar/Navbar';
 import BackgroundAccount from './components/Account/BackgroundAccount/BackgroundAccount'
 import Cart from './components/Cart/Cart'
 import ProductDetails from './components/ProductDetails/ProductDetails'
+import Checkout from './components/Checkout/Checkout'
 class App extends React.Component {
   constructor(){
     super()
@@ -86,7 +87,7 @@ class App extends React.Component {
                  <Route path='/profile' component={Profile}/>
                  <Route path='/cart' component={()=><Cart user={this.state.user}/>}/>
                  <Route path='/productdetails' component={()=><ProductDetails user={this.state.user}/>}/>
-
+                 <Route path='/checkout' component={()=><Checkout user={this.state.user}/>}/>
           </Switch>
         </BrowserRouter>
       </div>

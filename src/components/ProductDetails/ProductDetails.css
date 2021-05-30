@@ -63,7 +63,7 @@
     100% {opacity:1;}
 }
 
-@-webkit-keyframes fadeInLeft {
+@-webkit-keyframes fadeInLeftDetail {
     from {
         opacity:0;
         -webkit-transform: translatex(-10px);
@@ -79,7 +79,7 @@
         transform: translatex(0);
     }
 }
-@-moz-keyframes fadeInLeft {
+@-moz-keyframes fadeInLeftDetail {
     from {
         opacity:0;
         -webkit-transform: translatex(-10px);
@@ -95,7 +95,7 @@
         transform: translatex(0);
     }
 }
-@keyframes fadeInLeft {
+@keyframes fadeInLeftDetail {
     from {
         opacity:0;
         -webkit-transform: translatex(-100px);
@@ -112,10 +112,10 @@
     }
 }
 .in-left {
-    -webkit-animation-name: fadeInLeft;
-    -moz-animation-name: fadeInLeft;
-    -o-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
+    -webkit-animation-name: fadeInLeftDetail;
+    -moz-animation-name: fadeInLeftDetail;
+    -o-animation-name: fadeInLeftDetail;
+    animation-name: fadeInLeftDetail;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     -o-animation-fill-mode: both;
@@ -130,10 +130,10 @@
     animation-delay: 0s;
 }
 .in-left2 {
-    -webkit-animation-name: fadeInLeft;
-    -moz-animation-name: fadeInLeft;
-    -o-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
+    -webkit-animation-name: fadeInLeftDetail;
+    -moz-animation-name: fadeInLeftDetail;
+    -o-animation-name: fadeInLeftDetail;
+    animation-name: fadeInLeftDetail;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     -o-animation-fill-mode: both;
@@ -148,10 +148,10 @@
     animation-delay: 0.5s;
 }
 .in-left3 {
-    -webkit-animation-name: fadeInLeft;
-    -moz-animation-name: fadeInLeft;
-    -o-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
+    -webkit-animation-name: fadeInLeftDetail;
+    -moz-animation-name: fadeInLeftDetail;
+    -o-animation-name: fadeInLeftDetail;
+    animation-name: fadeInLeftDetail;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     -o-animation-fill-mode: both;
@@ -166,10 +166,10 @@
     animation-delay: 1s;
 }
 .in-left4 {
-    -webkit-animation-name: fadeInLeft;
-    -moz-animation-name: fadeInLeft;
-    -o-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
+    -webkit-animation-name: fadeInLeftDetail;
+    -moz-animation-name: fadeInLeftDetail;
+    -o-animation-name: fadeInLeftDetail;
+    animation-name: fadeInLeftDetail;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     -o-animation-fill-mode: both;

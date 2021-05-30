@@ -1,0 +1,95 @@
+.checkout-container{
+    margin-top:10%;
+    display: flex;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    resize: both;
+}
+
+.user-info{
+    width: 30%;
+}
+.bag-info{
+    width: 30%;
+    margin-left: 3%;
+}
+.bag-info img{
+    width:50%;
+}
+.bag-info hr{
+    margin-left: 5%;
+    margin-bottom: 3%;
+    margin-right: 5%;
+}
+.checkoutLogo{
+    max-width: 50%;
+    display: block;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+.CheckoutColapse{
+    display: none;
+}
+.CheckoutCartInfo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+.CheckoutCartInfo .CheckoutCartDetails{
+    width: 33%;
+}
+
+.CheckoutRecap{
+    margin-left: 5%;
+    margin-bottom: 5%;
+    margin-right: 5%;
+}
+
+@media (max-width: 800px) {
+    .checkout-container{
+        flex-direction: column-reverse;
+        margin-top: 30%;
+      }
+      .user-info{
+          width: 100%;
+          margin-left: 2%;
+      }
+      .bag-info{
+          width: 100%;
+      }
+      .checkoutLogo{
+          max-width: 100%;
+          display: block;
+          margin: 0 auto;
+      }
+}
+
+
+@media (max-width: 765px) {
+    .CheckoutColapse{
+        display: block;
+    }
+    .user-info form{
+        width: 100% !important;
+        padding:1rem;
+    }
+    .user-info button{
+        width: 90% !important;
+    }
+}
+@media (max-width: 800px) {
+    .CheckoutColapse{
+        display: block;
+    }
+}
+@media (min-width: 801px) and (max-width: 1024px) {
+    .bag-info{
+        width: 40%;
+    }
+}
