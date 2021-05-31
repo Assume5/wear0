@@ -1,6 +1,5 @@
 import React from 'react'
 function CheckoutCart({products,subtotal}){
-    console.log(subtotal)
     return(
         <div>
             {
@@ -28,15 +27,15 @@ function CheckoutCart({products,subtotal}){
                 <p className="f6 dib fl ml4">Subtotal</p>
                 <p className="f6 dib fr ml4">$ {subtotal}</p>
                 <br></br><br></br>
-                <p className="f6 fl ml4">Tax</p>
-                <p className="f6 fr ml4">Calculate Next Step</p>
+                <p className="f6 fl ml4">Shipping</p>
+                <p className="f6 fr ml4">$ 15</p>
                 <br></br>
             </div>
-            <hr className=""></hr>
+            <hr></hr>
             <br></br>
             <div className="CheckoutRecap">
                 <p className="f6 fl ml4">Total</p>
-                <p className="f6 fr ml4">$ {subtotal}</p>
+                <p className="f6 fr ml4">$ {subtotal+15}</p>
             </div>
         </div>
     )

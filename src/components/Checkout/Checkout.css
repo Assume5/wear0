@@ -82,14 +82,21 @@
     .user-info button{
         width: 90% !important;
     }
-}
-@media (max-width: 800px) {
-    .CheckoutColapse{
-        display: block;
+    .CheckoutRecap{
+        margin-left: -1%;
+        margin-bottom: 5%;
+        margin-right: 5%;
+    }
+    .checkoutLogo{
+        margin-top: 5%;
     }
 }
 @media (min-width: 801px) and (max-width: 1024px) {
+    .user-info{
+        width: 50%;
+        margin-left: 2%;
+    }
     .bag-info{
-        width: 40%;
+        width: 30%;
     }
 }
