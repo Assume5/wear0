@@ -3,6 +3,8 @@ import './Checkout.css'
 import CheckoutUserInfo from './CheckoutUserAddressInfo'
 import CheckoutCart from'./CheckoutCart'
 import CheckoutUserPaymentInfo from './CheckoutUserPaymentInfo'
+import CheckOutOverView from './CheckOutOverView'
+import logo_icon from '../Navbar/logo.png'
 class Checkout extends React.Component{
     constructor(){
         super()
@@ -118,144 +120,182 @@ class Checkout extends React.Component{
             })
         }
     }
-    OnChangeStepClick=(step)=>{
+    OnBackToUserAddressInfo=(step)=>{
+        this.setState({step:step},()=>{
+            const addressInfo=this.state.addressInfo
+            if(this.state.step===step){
+                Object.keys(addressInfo).map((id,i)=>{
+                    if(addressInfo.value!=="")
+                     return document.getElementById(id).value=addressInfo[id]
+                })
+            }
+        })
+    }
+    OnToUserPaymentInfoClick=(step)=>{
         const empty=this.isEmpty
         const addressInfo=this.state.addressInfo
-        if(step==="UserPaymentInfo"){
-            let allFilled=true;
-            Object.keys(addressInfo).map((id,i)=>{
-                if(id==='state'){
-                    if(addressInfo[id].length<2){
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    else{
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
-                }
-                if(id==='zip'){
-                    if(addressInfo[id].length!==5){
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    else{
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
-                }
-                if(id==='phone'){
-                    if(addressInfo[id].length!==10){
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    else{
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
-                }
-                if(id==="email"){
-                    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addressInfo[id].toLocaleLowerCase())){
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
-                    else{
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                }
-                if(empty(addressInfo[id]) && id!=="apartment"){
+        let allFilled=true;
+        Object.keys(addressInfo).map((id,i)=>{
+            if(id==='state'){
+                if(addressInfo[id].length<2){
                     allFilled=false;
                     return document.getElementById(id).classList.add("b--red")
                 }
-                if(!empty(addressInfo[id])) {
+                else{
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+            }
+            if(id==='zip'){
+                if(addressInfo[id].length!==5){
+                    allFilled=false;
+                    return document.getElementById(id).classList.add("b--red")
+                }
+                else{
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+            }
+            if(id==='phone'){
+                if(addressInfo[id].length!==10){
+                    allFilled=false;
+                    return document.getElementById(id).classList.add("b--red")
+                }
+                else{
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+            }
+            if(id==="email"){
+                if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addressInfo[id].toLocaleLowerCase())){
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+                else{
+                    allFilled=false;
+                    return document.getElementById(id).classList.add("b--red")
+                }
+            }
+            if(empty(addressInfo[id]) && id!=="apartment"){
+                allFilled=false;
+                return document.getElementById(id).classList.add("b--red")
+            }
+            if(!empty(addressInfo[id])) {
+                return document.getElementById(id).classList.remove("b--red")
+            }
+        })
+        // if(allFilled){
+        //     this.setState({step:step})
+        // }
+        const billingInfo={
+            firstnameBilling:addressInfo['firstname'],
+            lastnameBilling:addressInfo['lastname'],
+            addressBilling:addressInfo['address']+' '+addressInfo['apartment'],
+            cityBilling:addressInfo['city'],
+            stateBilling:addressInfo['state'],
+            zipBilling:addressInfo['zip']
+        }
+        this.setState({billingInfo:billingInfo})
+        this.setState({step:step})
+    }
+
+
+    OnUserOverViewClick=(step)=>{
+        const empty=this.isEmpty
+        let allFilled=true
+        if(!this.state.billingCheck){
+            const billingInfo=this.state.billingInfo
+            Object.keys(billingInfo).map((id,i)=>{
+                if(id==='stateBilling'){
+                    if(billingInfo[id].length<2){
+                        allFilled=false;
+                        return document.getElementById(id).classList.add("b--red")
+                    }
+                    else{
+                        return document.getElementById(id).classList.remove("b--red")
+                    }
+                }
+                if(id==='zipBilling'){
+                    if(billingInfo[id].length!==5){
+                        allFilled=false;
+                        return document.getElementById(id).classList.add("b--red")
+                    }
+                    else{
+                        return document.getElementById(id).classList.remove("b--red")
+                    }
+                }
+                if(empty(billingInfo[id])){
+                    return document.getElementById(id).classList.add("b--red")
+                }
+                if(!empty(billingInfo[id])) {
                     return document.getElementById(id).classList.remove("b--red")
                 }
             })
-            // if(allFilled){
-            //     this.setState({step:step})
-            // }
-            const billingInfo={
-                firstnameBilling:addressInfo['firstname'],
-                lastnameBilling:addressInfo['lastname'],
-                addressBilling:addressInfo['address']+' '+addressInfo['apartment'],
-                cityBilling:addressInfo['city'],
-                stateBilling:addressInfo['state'],
-                zipBilling:addressInfo['zip']
-            }
-            this.setState({billingInfo:billingInfo})
-            this.setState({step:step})
         }
-        if(step==="UserAddressInfo"){ //async function
-            this.setState({step:step},()=>{
-                const addressInfo=this.state.addressInfo
-                if(this.state.step===step){
-                    Object.keys(addressInfo).map((id,i)=>{
-                        if(addressInfo.value!=="")
-                        return document.getElementById(id).value=addressInfo[id]
-                    })
+        const paymentInfo=this.state.paymentInfo
+        Object.keys(paymentInfo).map((id,i)=>{
+            if(id==='cn'){
+                if(paymentInfo[id].length!==16){
+                    allFilled=false;
+                    return document.getElementById(id).classList.add("b--red")
                 }
-            })
+                else{
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+            }
+            if(id==='ed'){
+                if(!/^(?:0?[1-9]|1[0-2]) *\/ *[1-9][0-9]$/.test(paymentInfo[id])){
+                    allFilled=false;
+                    return document.getElementById(id).classList.add("b--red")
+                }
+                else{
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+            }
+            if(id==='sc'){
+                if(paymentInfo[id].length!==3){
+                    allFilled=false;
+                    return document.getElementById(id).classList.add("b--red")
+                }
+                else{
+                    return document.getElementById(id).classList.remove("b--red")
+                }
+            }
+
+        })
+        if(allFilled){
+                
         }
-        if(step==='UserOverView'){
-            let allFilled=true
-            if(!this.state.billingCheck){
-                const billingInfo=this.state.billingInfo
-                Object.keys(billingInfo).map((id,i)=>{
-                    if(id==='stateBilling'){
-                        if(billingInfo[id].length<2){
-                            allFilled=false;
-                            return document.getElementById(id).classList.add("b--red")
-                        }
-                        else{
-                            return document.getElementById(id).classList.remove("b--red")
-                        }
-                    }
-                    if(id==='zipBilling'){
-                        if(billingInfo[id].length!==5){
-                            allFilled=false;
-                            return document.getElementById(id).classList.add("b--red")
-                        }
-                        else{
-                            return document.getElementById(id).classList.remove("b--red")
-                        }
-                    }
-                    if(empty(billingInfo[id])){
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    if(!empty(billingInfo[id])) {
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
+        this.setState({step:step})
+    }
+    OnBackToPaymentClick=()=>{
+        this.setState({step:'UserPaymentInfo'},()=>{
+            const paymentInfo=this.state.paymentInfo
+            if(this.state.step==='UserPaymentInfo'){
+                Object.keys(paymentInfo).map((id,i)=>{
+                    if(paymentInfo.value!=="")
+                    return document.getElementById(id).value=paymentInfo[id]
                 })
             }
-            const paymentInfo=this.state.paymentInfo
-            Object.keys(paymentInfo).map((id,i)=>{
-                if(id==='cn'){
-                    if(paymentInfo[id].length!==16){
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    else{
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
+            if(this.state.billingCheck===false){
+                const billingInfo=this.state.billingInfo
+                if(this.state.step==='UserPaymentInfo'){
+                    Object.keys(billingInfo).map((id,i)=>{
+                        if(billingInfo.value!=="")
+                        return document.getElementById(id).value=billingInfo[id]
+                    })
                 }
-                if(id==='ed'){
-                    if(!/^(?:0?[1-9]|1[0-2]) *\/ *[1-9][0-9]$/.test(paymentInfo[id])){
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    else{
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
-                }
-                if(id==='sc'){
-                    if(paymentInfo[id].length!==3){
-                        allFilled=false;
-                        return document.getElementById(id).classList.add("b--red")
-                    }
-                    else{
-                        return document.getElementById(id).classList.remove("b--red")
-                    }
-                }
-            })
+            }
+        })
+    }
+    OnChangeStepClick=(step)=>{
+        if(step==="UserPaymentInfo"){ //when user click
+            this.OnToUserPaymentInfoClick(step)
+        }
+        if(step==="UserAddressInfo"){ //async function
+            this.OnBackToUserAddressInfo(step)
+        }
+        if(step==='UserOverView'){
+            this.OnUserOverViewClick(step)
         }
     }
+
     render(){
         if(!this.state.loaded){
             return <h1 style={{marginTop:"10%"}}>Loading</h1>
@@ -264,6 +304,8 @@ class Checkout extends React.Component{
             return(
                 <div className="checkout-container">
                     <div className="user-info">
+                        <img src={logo_icon} alt="logo" className="checkoutLogo db pointer" onClick={event =>  window.location.href='/'}/>
+
                         {
                             this.state.step==="UserAddressInfo"
                             ?
@@ -277,8 +319,19 @@ class Checkout extends React.Component{
                                     OnChangeBillingInput={this.OnChangeBillingInput}
                                     OnChangePaymentInput={this.OnChangePaymentInput}
                                     OnChangeBillingChecked={this.OnChangeBillingChecked}
+                                    billingCheck = {this.state.billingCheck}
                                  />
                             :
+                                this.state.step==="UserOverView"
+                                ?
+                                    <CheckOutOverView
+                                        billingInfo={this.state.billingInfo}
+                                        addressInfo={this.state.addressInfo}
+                                        paymentInfo={this.state.paymentInfo}
+                                        OnChangeStepClick={this.OnChangeStepClick} 
+                                        OnBackToPaymentClick={this.OnBackToPaymentClick}
+                                    />
+                                :
                                 <></>
                                 // <CheckoutConfirm OnChangeStepClick={this.OnChangeStepClick} />
                         }

@@ -1,10 +1,8 @@
-import logo_icon from '../Navbar/logo.png'
 import {Button} from 'react-bootstrap'
 
 function CheckoutUserAddressInfo({OnChangeStepClick,OnChangeAddressInput}){
     return(
         <div>
-                <img src={logo_icon} alt="logo" className="checkoutLogo db pointer" onClick={event =>  window.location.href='/'}/>
                 <form className="pa2 black-80 w-50 dib">
                     <div className="measure">
                         <label className="db fw6 lh-copy f6 black " htmlFor="first-name">First Name</label>

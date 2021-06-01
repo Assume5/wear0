@@ -1,4 +1,3 @@
-import logo_icon from '../Navbar/logo.png'
 import {Button,Form} from 'react-bootstrap'
 import React from 'react'
 class CheckoutUserPaymentInfo extends React.Component{
@@ -13,10 +12,9 @@ class CheckoutUserPaymentInfo extends React.Component{
         this.props.OnChangeBillingChecked()
     }
     render(){
-        const {OnChangeStepClick,billingInfo,OnChangeBillingInput,OnChangePaymentInput}=this.props
+        const {OnChangeStepClick,billingInfo,OnChangeBillingInput,OnChangePaymentInput,billingCheck}=this.props
         return(
             <div>
-                <img src={logo_icon} alt="logo" className="checkoutLogo db pointer" onClick={event =>  window.location.href='/'}/>
                 <form className="pa2 black-80 w-60 dib">
                     <div className="measure">
                         <label className="db fw6 lh-copy f6 black " htmlFor="email-address">Card Number</label>
@@ -37,10 +35,10 @@ class CheckoutUserPaymentInfo extends React.Component{
                 </form>
                 <hr></hr>
                 <Form.Group className="mb-3 pv2" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" defaultChecked={this.state.checked} onChange={this.toggleChange} onClick={this.onCheckClick} label="Billing address same as shipping" />
+                    <Form.Check type="checkbox" defaultChecked={billingCheck} onChange={this.toggleChange} onClick={this.onCheckClick} label="Billing address same as shipping" />
                 </Form.Group>
                 {   
-                    this.state.checked?
+                    billingCheck?
                     <div>
                         <p className="f6">{billingInfo['firstnameBilling']+' '+billingInfo['lastnameBilling'] }</p>
                         <p className="f6">{billingInfo['addressBilling']}</p>
