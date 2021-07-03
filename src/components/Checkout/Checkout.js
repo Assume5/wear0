@@ -4,7 +4,10 @@ import CheckoutUserInfo from './CheckoutUserAddressInfo'
 import CheckoutCart from'./CheckoutCart'
 import CheckoutUserPaymentInfo from './CheckoutUserPaymentInfo'
 import CheckOutOverView from './CheckOutOverView'
+import CheckoutConfirm from './OrderConfirmPage'
 import logo_icon from '../Navbar/logo.png'
+import {Animated} from "react-animated-css";
+
 class Checkout extends React.Component{
     constructor(){
         super()
@@ -180,9 +183,7 @@ class Checkout extends React.Component{
                 return document.getElementById(id).classList.remove("b--red")
             }
         })
-        // if(allFilled){
-        //     this.setState({step:step})
-        // }
+
         const billingInfo={
             firstnameBilling:addressInfo['firstname'],
             lastnameBilling:addressInfo['lastname'],
@@ -192,7 +193,10 @@ class Checkout extends React.Component{
             zipBilling:addressInfo['zip']
         }
         this.setState({billingInfo:billingInfo})
-        this.setState({step:step})
+        if(allFilled){
+            this.setState({step:step})
+        }
+
     }
 
 
@@ -260,9 +264,8 @@ class Checkout extends React.Component{
 
         })
         if(allFilled){
-                
+            this.setState({step:step})
         }
-        this.setState({step:step})
     }
     OnBackToPaymentClick=()=>{
         this.setState({step:'UserPaymentInfo'},()=>{
@@ -287,12 +290,16 @@ class Checkout extends React.Component{
     OnChangeStepClick=(step)=>{
         if(step==="UserPaymentInfo"){ //when user click
             this.OnToUserPaymentInfoClick(step)
+
         }
         if(step==="UserAddressInfo"){ //async function
             this.OnBackToUserAddressInfo(step)
         }
         if(step==='UserOverView'){
             this.OnUserOverViewClick(step)
+        }
+        if(step==='Confirm'){
+            this.setState({step:step})
         }
     }
 
@@ -307,34 +314,57 @@ class Checkout extends React.Component{
                         <img src={logo_icon} alt="logo" className="checkoutLogo db pointer" onClick={event =>  window.location.href='/'}/>
 
                         {
-                            this.state.step==="UserAddressInfo"
-                            ?
+                            this.state.step==="UserAddressInfo"&&
+                            <Animated animationIn="fadeInLeft" animationOut="fadeOut" animationInDuration={1500} animationOutDuration={1000} isVisible={true}>
+
                                 <CheckoutUserInfo OnChangeStepClick={this.OnChangeStepClick} OnChangeAddressInput={this.OnChangeAddressInput} />
-                            :
-                                this.state.step==="UserPaymentInfo"
-                            ?
-                                <CheckoutUserPaymentInfo
-                                    OnChangeStepClick={this.OnChangeStepClick} 
-                                    billingInfo={this.state.billingInfo}
-                                    OnChangeBillingInput={this.OnChangeBillingInput}
-                                    OnChangePaymentInput={this.OnChangePaymentInput}
-                                    OnChangeBillingChecked={this.OnChangeBillingChecked}
-                                    billingCheck = {this.state.billingCheck}
-                                 />
-                            :
-                                this.state.step==="UserOverView"
-                                ?
-                                    <CheckOutOverView
-                                        billingInfo={this.state.billingInfo}
-                                        addressInfo={this.state.addressInfo}
-                                        paymentInfo={this.state.paymentInfo}
-                                        OnChangeStepClick={this.OnChangeStepClick} 
-                                        OnBackToPaymentClick={this.OnBackToPaymentClick}
-                                    />
-                                :
-                                <></>
-                                // <CheckoutConfirm OnChangeStepClick={this.OnChangeStepClick} />
+
+                            </Animated>
                         }
+
+                        {
+                              this.state.step==="UserPaymentInfo"&&
+                              <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
+                                  <CheckoutUserPaymentInfo
+                                      OnChangeStepClick={this.OnChangeStepClick} 
+                                      billingInfo={this.state.billingInfo}
+                                      OnChangeBillingInput={this.OnChangeBillingInput}
+                                      OnChangePaymentInput={this.OnChangePaymentInput}
+                                      OnChangeBillingChecked={this.OnChangeBillingChecked}
+                                      billingCheck = {this.state.billingCheck}
+                                   />
+                              </Animated>
+                        }
+
+                        {
+                             this.state.step==="UserOverView"&&
+                             <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
+
+                                 <CheckOutOverView
+                                     billingInfo={this.state.billingInfo}
+                                     addressInfo={this.state.addressInfo}
+                                     paymentInfo={this.state.paymentInfo}
+                                     OnChangeStepClick={this.OnChangeStepClick} 
+                                     OnBackToPaymentClick={this.OnBackToPaymentClick}
+                                 />
+                             </Animated>
+                        }
+   
+                        {
+                                this.state.step==="Confirm" &&
+                                <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
+
+                                    <CheckoutConfirm 
+
+                                    OnChangeStepClick={this.OnChangeStepClick}
+                                    addressInfo={this.state.addressInfo}
+                                    billingInfo={this.state.billingInfo}
+                                    cardNum={this.state.paymentInfo.cn.substr(16-4)}
+
+                                    />
+                                 </Animated>
+                        }
+
                     </div>
                     <div className="bag-info">
                         <CheckoutCart products={this.state.products} subtotal={this.state.subtotal}/>

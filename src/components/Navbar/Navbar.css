@@ -49,6 +49,10 @@
     top:-13px;
     right:12px;
 }
+.sticky-nav {
+    position: sticky;
+    top: 0;
+  }
 @media (max-width: 800px) {
     .navbar-collapse {
         border-top: 1px solid transparent;

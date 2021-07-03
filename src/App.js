@@ -38,29 +38,14 @@ class App extends React.Component {
 
   onUserIconClick=()=>{
     if(this.state.user.login===false){
-      if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/")||document.URL.includes("/productdetails/") ) {
-        window.location='../login'
-      }
-      else{
-        window.location='./login'
-      }
+        window.location='/login'
     }
     else{
-      if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/")||document.URL.includes("/productdetails/") ) {
-        window.location='../profile'
-      }
-      else{
-        window.location='./profile'
-      }
+        window.location='/profile'
     }
   }
   onUserShoppingBagClick=()=>{
-    if(document.URL.includes("/men/") || document.URL.includes("/women/") || document.URL.includes("/kids/") || document.URL.includes("/sale/")||document.URL.includes("/productdetails/") ) {
-      window.location='../cart'
-    }
-    else{
-      window.location='./cart'
-    }
+      window.location='/cart'
   }
   render(){
     return (

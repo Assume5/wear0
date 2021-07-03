@@ -1,5 +1,7 @@
 import {Button,Form} from 'react-bootstrap'
 import React from 'react'
+import {Animated} from "react-animated-css";
+
 class CheckoutUserPaymentInfo extends React.Component{
     constructor(){
         super()
@@ -45,44 +47,44 @@ class CheckoutUserPaymentInfo extends React.Component{
                         <p className="f6">{billingInfo['cityBilling']+', '+billingInfo['stateBilling']+', '+billingInfo['zipBilling']}</p>
                     </div>
                     :
-                    <div>
+                    <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
                         <form className="pa2 black-80 w-50 dib">
-                            <div className="measure">
-                                <label className="db fw6 lh-copy f6 black " htmlFor="first-name">First Name</label>
-                                <input id="firstnameBilling" onChange={OnChangeBillingInput} className="ba b--black-20 pa2 mb2 db w-100"   type="text" aria-describedby="name-desc" />
-                            </div>
-                        </form>
-                        <form className="pa2 black-80 w-50 dib">
-                            <div className="measure">
-                                <label className="db fw6 lh-copy f6 black " htmlFor="last-name">Last Name</label>
-                                <input id="lastnameBilling" onChange={OnChangeBillingInput} className="ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc"   />
-                            </div>
-                        </form> 
-                        <form className="pa2 black-80 w-100">
-                            <div>
-                                <label className="db fw6 lh-copy f6 black " htmlFor="address">Address</label>
-                                <input id="addressBilling" onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc"/>
-                            </div>
-                        </form> 
-                        <form className="pa2  black-80 w-33 dib">
-                            <div className="measure">
-                                <label className="db fw6 lh-copy f6 black  " htmlFor="city">City</label>
-                                <input id="cityBilling"  onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc"/>
-                            </div>
-                        </form>
-                        <form className="pa2  black-80 w-33 dib">
-                            <div className="measure">
-                                <label className="db fw6 lh-copy f6 black  " htmlFor="state">State</label>
-                                <input id="stateBilling" onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc" placeholder="XX" maxlength="2"/>
-                            </div>
-                        </form>
-                        <form className="pa2 black-80 w-33 dib">
-                            <div className="measure">
-                                <label className="db fw6 lh-copy f6 black  " htmlFor="zipcode">ZipCode</label>
-                                <input id="zipBilling" onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc" placeholder="XXXXX" maxlength="5"/>
-                            </div>
-                        </form>
-                    </div>
+                                <div className="measure">
+                                    <label className="db fw6 lh-copy f6 black " htmlFor="first-name">First Name</label>
+                                    <input id="firstnameBilling" onChange={OnChangeBillingInput} className="ba b--black-20 pa2 mb2 db w-100"   type="text" aria-describedby="name-desc" />
+                                </div>
+                            </form>
+                            <form className="pa2 black-80 w-50 dib">
+                                <div className="measure">
+                                    <label className="db fw6 lh-copy f6 black " htmlFor="last-name">Last Name</label>
+                                    <input id="lastnameBilling" onChange={OnChangeBillingInput} className="ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc"   />
+                                </div>
+                            </form> 
+                            <form className="pa2 black-80 w-100">
+                                <div>
+                                    <label className="db fw6 lh-copy f6 black " htmlFor="address">Address</label>
+                                    <input id="addressBilling" onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc"/>
+                                </div>
+                            </form> 
+                            <form className="pa2  black-80 w-33 dib">
+                                <div className="measure">
+                                    <label className="db fw6 lh-copy f6 black  " htmlFor="city">City</label>
+                                    <input id="cityBilling"  onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc"/>
+                                </div>
+                            </form>
+                            <form className="pa2  black-80 w-33 dib">
+                                <div className="measure">
+                                    <label className="db fw6 lh-copy f6 black  " htmlFor="state">State</label>
+                                    <input id="stateBilling" onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc" placeholder="XX" maxlength="2"/>
+                                </div>
+                            </form>
+                            <form className="pa2 black-80 w-33 dib">
+                                <div className="measure">
+                                    <label className="db fw6 lh-copy f6 black  " htmlFor="zipcode">ZipCode</label>
+                                    <input id="zipBilling" onChange={OnChangeBillingInput} className=" ba b--black-20 pa2 mb2 db w-100"  type="text" aria-describedby="name-desc" placeholder="XXXXX" maxlength="5"/>
+                                </div>
+                            </form>
+                    </Animated>
                 }
       
                 <hr></hr>

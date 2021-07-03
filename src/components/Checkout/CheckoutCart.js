@@ -1,7 +1,9 @@
 import React from 'react'
+import {Animated} from "react-animated-css";
 function CheckoutCart({products,subtotal}){
     return(
         <div>
+            <Animated animationIn="fadeInRight" animationOut="fadeOut" animationInDuration={1500} animationOutDuration={1000} isVisible={true}>
             {
                 Object.keys(products).map((id,i)=>{
                     return(
@@ -37,6 +39,7 @@ function CheckoutCart({products,subtotal}){
                 <p className="f6 fl ml4">Total</p>
                 <p className="f6 fr ml4">$ {subtotal+15}</p>
             </div>
+            </Animated>
         </div>
     )
 }

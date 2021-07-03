@@ -185,7 +185,15 @@
 }
 
 
+@media (max-width: 700px) {
+    .SizeInStock{
+        min-width:20%;
 
+    }
+    .SizeNoStock{
+        min-width:20%; 
+    }
+  }
 @media (max-width: 800px) {
     .ProductDetailContainer{
         flex-direction: column-reverse;

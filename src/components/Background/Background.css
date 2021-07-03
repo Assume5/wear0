@@ -1,5 +1,4 @@
 .background {
-    margin-top: 3%;
     max-width: 100vw;
     min-width: 100vw;
     min-height: 100vh; 
@@ -35,7 +34,7 @@
     transition: top ease 0.5s;
 }
 .shop:hover{
-    top: -10px;
+    top: -5px;
 }
 @media (max-width: 800px) {
     .background{

@@ -8,7 +8,7 @@ import React from 'react';
 function navbar({onUserIconClick,onUserShoppingBagClick}){
     return(
     <>  
-        <Navbar bg="light" expand="lg" fixed="top">
+        <Navbar bg="light" expand="lg" sticky="top">
             <Navbar.Brand href="/">
                 <img src={logo_icon} alt="logo" width="100px" height="auto"/>
             </Navbar.Brand>
