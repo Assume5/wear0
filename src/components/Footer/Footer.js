@@ -9,18 +9,18 @@ function footer(){
             <div className="row">
                 <div className="col">
                     <p className="f5 title">About WEAR0</p>
-                    <p><a href="/page/about-us" className="f6">About Us</a></p>
-                    <p><a href="/page/mens-sitemap" className="f6">Mens SiteMap</a></p>
-                    <p><a href="/page/women-sitemap" className="f6">Women SiteMap</a></p>
-                    <p><a href="/page/kids-sitemap" className="f6">Kids SiteMap</a></p>
-                    <p><a href="/page/sale-sitemap" className="f6">Sale SiteMap</a></p>
-                    <p><a href="/page/privacy-statement" className="f6">Privacy Statement</a></p>
-                    <p><a href="/page/terms-of-use" className="f6">Terms Of Use</a></p>
+                    <p><a href="/pages/about-us" className="f6">About Us</a></p>
+                    <p><a href="/pages/mens-sitemap" className="f6">Mens SiteMap</a></p>
+                    <p><a href="/pages/women-sitemap" className="f6">Women SiteMap</a></p>
+                    <p><a href="/pages/kids-sitemap" className="f6">Kids SiteMap</a></p>
+                    <p><a href="/pages/sale-sitemap" className="f6">Sale SiteMap</a></p>
+                    <p><a href="/pages/privacy-statement" className="f6">Privacy Statement</a></p>
+                    <p><a href="/pages/terms-of-use" className="f6">Terms Of Use</a></p>
                 </div>
                 <div className="col">
                     <p className="f5 title">Service</p>
-                    <p><a href="/service/order-status" className="f6">Order Status</a></p>
-                    <p><a href="/service/contact-us" className="f6">Contact Us</a></p>
+                    <p><a href="/services/order-status" className="f6">Order Status</a></p>
+                    <p><a href="/services/contact-us" className="f6">Contact Us</a></p>
                 </div>
 
                 <div className="col">
