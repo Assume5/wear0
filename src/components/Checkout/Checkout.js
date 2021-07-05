@@ -196,7 +196,17 @@ class Checkout extends React.Component{
         if(allFilled){
             this.setState({step:step})
         }
-
+        if(this.state.paymentInfo["cn"]!==""){
+            this.setState({step:'UserPaymentInfo'},()=>{
+            const paymentInfo=this.state.paymentInfo
+            if(this.state.step==='UserPaymentInfo'){
+                Object.keys(paymentInfo).map((id,i)=>{
+                    if(paymentInfo.value!=="")
+                    return document.getElementById(id).value=paymentInfo[id]
+                })
+            }
+        })
+        }
     }
 
 

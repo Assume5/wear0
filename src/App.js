@@ -24,6 +24,9 @@ import BackgroundAccount from './components/Account/BackgroundAccount/Background
 import Cart from './components/Cart/Cart'
 import ProductDetails from './components/ProductDetails/ProductDetails'
 import Checkout from './components/Checkout/Checkout'
+import OrderStatus from './components/OrderStatus/OrderStatus'
+import Footer from './components/Footer/Footer'
+import NotFound from './components/NotFound/NotFound';
 class App extends React.Component {
   constructor(){
     super()
@@ -73,8 +76,11 @@ class App extends React.Component {
                  <Route path='/cart' component={()=><Cart user={this.state.user}/>}/>
                  <Route path='/productdetails' component={()=><ProductDetails user={this.state.user}/>}/>
                  <Route path='/checkout' component={()=><Checkout user={this.state.user}/>}/>
+                 <Route path='/orderstatus' component={()=><OrderStatus/>}/>
+                 <Route component={NotFound} />
           </Switch>
         </BrowserRouter>
+        <Footer/>
       </div>
     );
   }

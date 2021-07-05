@@ -1,0 +1,97 @@
+$mainColor: white;
+$backgroundColor: black;
+.footer{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    background-color: $backgroundColor;
+
+    p{
+        color: $mainColor;
+    }
+
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 3%;
+
+    }
+
+    .col{
+        text-align: justify;
+        margin-top: 5%;
+        flex: 0 0 33%;
+        max-width: 33%;
+        margin-bottom: 5%;
+
+
+        .title{
+            padding-bottom: 1.25rem;
+            margin-bottom: 3%;
+        }
+
+        .title::after {
+            content: '';
+            border-bottom: 3px solid $mainColor;
+            width: 26px;
+            display: block;
+            margin-top: 5%;
+        }
+
+        a{
+            color:$mainColor;
+            position: relative;
+            color: $mainColor;
+            text-decoration: none;
+            margin-bottom: 1%;
+        }
+
+        a:hover{
+            color: $mainColor;
+        }
+
+        a::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: $mainColor;
+          visibility: hidden;
+          transform: scaleX(0);
+          transition: all 0.3s ease-in-out 0s;
+        }
+
+        a:hover::before {
+          visibility: visible;
+          transform: scaleX(1);
+        } 
+
+        .social{
+            display: flex;
+            flex-wrap: wrap;
+            a{
+                margin-right: 5% ;
+            }
+        }
+    }
+
+    .newsletter-button{
+        display: flex;
+    }
+    @media (max-width: "800px"){
+        .col{
+            flex: 0 0 50%;
+            max-width: 100%;
+        }
+        .newsletter-button{
+           button{
+               width:25%
+           }
+           input{
+               width:80%
+           }
+        }
+    }
+
+}
