@@ -1,4 +1,5 @@
 import './App.css';
+import './components/AnimationCss/animation.scss'
 import 'tachyons';
 import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,7 +29,10 @@ import Footer from './components/Footer/Footer'
 import NotFound from './components/NotFound/NotFound';
 
 //pages
-
+import MensSiteMap from './components/Pages/MensSiteMap/MensSiteMap';
+import WomenSiteMap from './components/Pages/WomenSiteMap/WomensSiteMap';
+import KidsSiteMap from './components/Pages/KidsSiteMap/KidsSiteMap';
+import SaleSiteMap from './components/Pages/SaleSiteMap/SaleSiteMap';
 //services
 import ContactUs from './components/Services/ContactUs/ContactUs';
 import OrderStatus from './components/Services/OrderStatus/OrderStatus';
@@ -86,6 +90,10 @@ class App extends React.Component {
                  <Route path='/checkout' component={()=><Checkout user={this.state.user}/>}/>
                  <Route path='/services/contact-us' component={()=><ContactUs/>}/>
                  <Route path='/services/order-status' component={()=><OrderStatus/>}/>
+                 <Route path='/pages/mens-sitemap' component={()=><MensSiteMap/>}/>
+                 <Route path='/pages/kids-sitemap' component={()=><KidsSiteMap/>}/>
+                 <Route path='/pages/sale-sitemap' component={()=><SaleSiteMap/>}/>
+                 <Route path='/pages/women-sitemap' component={()=><WomenSiteMap/>}/>
 
                  <Route component={NotFound} />
           </Switch>
