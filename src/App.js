@@ -33,6 +33,9 @@ import MensSiteMap from './components/Pages/MensSiteMap/MensSiteMap';
 import WomenSiteMap from './components/Pages/WomenSiteMap/WomensSiteMap';
 import KidsSiteMap from './components/Pages/KidsSiteMap/KidsSiteMap';
 import SaleSiteMap from './components/Pages/SaleSiteMap/SaleSiteMap';
+import AboutUs from './components/Pages/AboutUs/AboutUs';
+import Privacy from './components/Pages/Privacy/Privacy';
+import TermOfUse from './components/Pages/TermOfUse/TermOfUse';
 //services
 import ContactUs from './components/Services/ContactUs/ContactUs';
 import OrderStatus from './components/Services/OrderStatus/OrderStatus';
@@ -94,6 +97,10 @@ class App extends React.Component {
                  <Route path='/pages/kids-sitemap' component={()=><KidsSiteMap/>}/>
                  <Route path='/pages/sale-sitemap' component={()=><SaleSiteMap/>}/>
                  <Route path='/pages/women-sitemap' component={()=><WomenSiteMap/>}/>
+                 <Route path='/pages/about-us' component={()=><AboutUs/>}/>
+                 <Route path='/pages/privacy-statement' component={()=><Privacy/>}/>
+                 <Route path='/pages/terms-of-use' component={()=><TermOfUse/>}/>
+
 
                  <Route component={NotFound} />
           </Switch>
