@@ -28,6 +28,7 @@ import Checkout from './components/Checkout/Checkout'
 import Footer from './components/Footer/Footer'
 import NotFound from './components/NotFound/NotFound';
 
+import Orders from './components/Orders/Orders';
 //pages
 import MensSiteMap from './components/Pages/MensSiteMap/MensSiteMap';
 import WomenSiteMap from './components/Pages/WomenSiteMap/WomensSiteMap';
@@ -91,6 +92,9 @@ class App extends React.Component {
                  <Route path='/cart' component={()=><Cart user={this.state.user}/>}/>
                  <Route path='/productdetails' component={()=><ProductDetails user={this.state.user}/>}/>
                  <Route path='/checkout' component={()=><Checkout user={this.state.user}/>}/>
+                 <Route path='/orders' component={()=><Orders/>}/>
+
+
                  <Route path='/services/contact-us' component={()=><ContactUs/>}/>
                  <Route path='/services/order-status' component={()=><OrderStatus/>}/>
                  <Route path='/pages/mens-sitemap' component={()=><MensSiteMap/>}/>

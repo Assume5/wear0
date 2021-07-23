@@ -20,7 +20,7 @@ function HomeNewcollection({productdetailsNewCollection,isPosition,onProductCard
                     productalt={productaltNewCollection}
                     isPosition = {isPosition}
                     productimageHover={productimageNewCollectionHover}
-                    animationDelay={100+i*300}
+                    animationDelay={100+i*100}
                     onProductCardClick={onProductCardClick}
                     productstock={productstockNewCollection}
                 />

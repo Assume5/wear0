@@ -24,7 +24,7 @@ class Content extends React.Component{
         return(
             <div className="item_content" >
                         <BrowserView>
-                            <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={800} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
+                            <Animated animationIn="fadeInDown" animationOut="fadeOut" animationInDuration={500} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
                                     <div className="container" onClick={()=>onProductCardClick(productid)}>
                                     <img src={this.state.img} alt={productalt} onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}/>
@@ -41,7 +41,7 @@ class Content extends React.Component{
                             </Animated>
                         </BrowserView>
                         <MobileView>
-                            <Animated animationIn="fadeInUp" animationOut="fadeOut" animationInDuration={2000} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
+                            <Animated animationIn="fadeInUp" animationOut="fadeOut" animationInDuration={500} animationOutDuration={0} animationInDelay={animationDelay} isVisible={isPosition}>
                                 <div className="home_card shadow-5 br3 grow">
                                     <div className="container" onClick={()=>onProductCardClick(productid)}>
                                         <img src={productimage} alt={productalt}/>

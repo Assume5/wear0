@@ -27,17 +27,17 @@ function CheckoutCart({products,subtotal}){
             <hr></hr>
             <div className="CheckoutRecap">
                 <p className="f6 dib fl ml4">Subtotal</p>
-                <p className="f6 dib fr ml4">$ {subtotal}</p>
+                <p className="f6 dib fr ml4">${subtotal}</p>
                 <br></br><br></br>
                 <p className="f6 fl ml4">Shipping</p>
-                <p className="f6 fr ml4">$ 15</p>
+                <p className="f6 fr ml4">$15</p>
                 <br></br>
             </div>
             <hr></hr>
             <br></br>
             <div className="CheckoutRecap">
                 <p className="f6 fl ml4">Total</p>
-                <p className="f6 fr ml4">$ {subtotal+15}</p>
+                <p className="f6 fr ml4">${subtotal+15}</p>
             </div>
             </Animated>
         </div>

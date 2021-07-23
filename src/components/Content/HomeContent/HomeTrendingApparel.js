@@ -21,7 +21,7 @@ function HomeTrendingApparel({productdetailsTrending,isPosition,onProductCardCli
                     productalt={productaltTrending} 
                     isPosition = {isPosition}
                     productimageHover={productimageTrendingHover}
-                    animationDelay={100+i*300}
+                    animationDelay={100+i*100}
                     onProductCardClick={onProductCardClick}
                     productstock={productstockTrending}
                 />

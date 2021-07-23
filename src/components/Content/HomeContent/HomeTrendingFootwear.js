@@ -20,7 +20,7 @@ function HomeTrendingFootwear({productdetailsTrending,isPosition,onProductCardCl
                     productalt={productaltTrending} 
                     isPosition = {isPosition}
                     productimageHover={productimageTrendingHover}
-                    animationDelay={100+i*300}
+                    animationDelay={100+i*100}
 
                 />
             )
