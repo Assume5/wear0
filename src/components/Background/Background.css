@@ -46,9 +46,6 @@
     .background_img{
         margin: 0 auto;
     }
-    .background{
-        min-height: 100vh;
-    }
 
     .background_text h5{
         margin-top: 40%;
@@ -57,9 +54,6 @@
 @media (min-width: 768px) and (max-width: 1024px){
     img{
         max-width: 90%;
-    }
-    .background{
-        min-height: 100vh;
     }
     .shop{
         margin:2%

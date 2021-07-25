@@ -85,7 +85,7 @@ class Orders extends React.Component{
             return(
                 <div>
                     <MobileView>
-                        <img src = {logo_icon} alt="" className="logo" style={{marginTop:'5%'}}/>
+                        <img src = {logo_icon} alt="" className="logo pointer" style={{marginTop:'5%'}} onClick={event =>  window.location.href='/'}/>
                     </MobileView>
                     <div className="order-status">
                         <Informations information={this.state.information}/>

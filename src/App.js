@@ -1,5 +1,7 @@
 import './App.css';
-import './components/AnimationCss/animation.scss'
+import './components/Global Style/animation.scss'
+import './components/Global Style/global.scss'
+
 import 'tachyons';
 import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +20,7 @@ import WomenFootwear from './components/Women/Footwear/WomenFootwear'
 import KidsSale from './components/Sale/Kids/KidsSale'
 import MenSale from './components/Sale/Mens/MenSale'
 import WomenSale from './components/Sale/Women/WomenSale'
-import Profile from './components/Account/Profile/Profile'
+import Account from './components/Account/Account/Account';
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import BackgroundAccount from './components/Account/BackgroundAccount/BackgroundAccount'
@@ -60,7 +62,7 @@ class App extends React.Component {
         window.location='/login'
     }
     else{
-        window.location='/profile'
+        window.location='/account'
     }
   }
   onUserShoppingBagClick=()=>{
@@ -88,7 +90,7 @@ class App extends React.Component {
                  <Route path='/sale/kids' component={KidsSale}/>       
                  <Route path='/signup' component={()=><BackgroundAccount h5Txt={'Register Page!'} h1Txt={'Join Us!'} route={'register'}  />}/>
                  <Route path='/login' component={()=><BackgroundAccount h5Txt={'Login Page!'} h1Txt={'We Miss You!'} route={'login'}  />}/>
-                 <Route path='/profile' component={Profile}/>
+                 <Route path='/account' component={Account}/>
                  <Route path='/cart' component={()=><Cart user={this.state.user}/>}/>
                  <Route path='/productdetails' component={()=><ProductDetails user={this.state.user}/>}/>
                  <Route path='/checkout' component={()=><Checkout user={this.state.user}/>}/>

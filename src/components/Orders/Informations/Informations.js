@@ -28,7 +28,7 @@ export default function Informations({information}){
         <div className="information">
             <Animated animationIn="fadeInLeft" animationOut="fadeOut" animationInDuration={1500} animationOutDuration={1000} isVisible={true}>
                 <BrowserView>
-                    <img src = {logo_icon} alt="" className="logo"/>
+                    <img src = {logo_icon} alt="" className="logo pointer" onClick={event =>  window.location.href='/'}/>
                 </BrowserView>
                 <div class="timeline-container">
                     <h1 className="f4">Tracking Information</h1>
@@ -52,7 +52,7 @@ export default function Informations({information}){
                 <br/>
                 <div className="information-container">
                     <div className="header">
-                        <p className="f5" style={{textAlign:'left', paddingLeft:'30px', paddingRight:'30px'}}>Customer Information</p>
+                        <p className="f5">Customer Information</p>
                     </div>
                     <div className="user-information">
                         <div className="shipping-information">

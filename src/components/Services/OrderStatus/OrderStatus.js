@@ -23,7 +23,7 @@ export default function OrderStatus(){
                       />
                 </div>
                 <br/>
-                <Button size="md" variant="dark" className="shadow-5 grow br3 w-30" href="/orders">Submit</Button>
+                <Button size="md" variant="dark" className="shadow-5 grow br3 w-30">Submit</Button>
             </Animated>
         </div>
     )
