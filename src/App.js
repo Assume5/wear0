@@ -1,6 +1,5 @@
 import './App.css';
-import './components/Global Style/animation.scss'
-import './components/Global Style/global.scss'
+import './styles/main.scss'
 
 import 'tachyons';
 import 'react-bootstrap'

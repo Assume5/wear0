@@ -26,7 +26,7 @@ function Background({backGroundImgLink,route,h5Txt,h1Txt}){
                     </Animated>
                 </MobileView>
                 {
-                route==='home'?
+                route==='home'&&
                     <div>
                         <BrowserView>
                             <Animated animationIn="fadeInLeft" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
@@ -43,15 +43,7 @@ function Background({backGroundImgLink,route,h5Txt,h1Txt}){
                             </Animated>
                         </MobileView>
                     </div>
-                :
-                (
-                <div>
-
-                </div>
-                )
-
                 }
-
             </div>
             {/* Background left sided */}
             <div className="item">

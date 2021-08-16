@@ -1,5 +1,4 @@
 import React from 'react';
-import './Login.css'
 
 class Login extends React.Component{
   constructor(){
@@ -34,6 +33,7 @@ class Login extends React.Component{
     //     this.props.onRouteChange("home")
     //   }
     // })
+    window.location="./account"
   }
   render(){
     return(

@@ -1,0 +1,100 @@
+.account {
+    align-items: unset !important;
+    height: 100vh;
+    p{
+        color: white;
+        margin: 3%;
+    }
+
+    a {
+        margin: 3%;
+    }
+
+    .head {
+        margin-top: 5%;
+        width: 80%;
+    }
+
+    .past-orders {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        p {
+            margin-top:1%;
+            margin-bottom: 1%;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+        }
+
+        .order {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-top: 2%;
+        }
+
+        .order-number {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+        
+        .order-date {
+            flex: 0 0 30%;
+            max-width: 30%;
+        }
+        
+        .status {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+
+        .order-total {
+            flex: 0 0 30%;
+            max-width: 30%;
+        }
+
+    }
+}
+
+@media (max-width: 800px) {
+    .account {
+
+        .w-20 {
+            width: 33% !important;
+        }
+        
+        .w-30 {
+            width: 50% !important;
+        }
+    
+        .w-60 {
+            width: 100% !important;
+        }
+
+        label {
+            font-size: 11px;
+        }
+
+        p {
+            font-size: 11px;
+        }
+    }
+
+    .background {
+        min-height: 50vh !important;
+    }
+        
+}
+
+@media (max-width: 1025px) {
+    .background {
+        min-height: 50vh !important;
+    }
+}

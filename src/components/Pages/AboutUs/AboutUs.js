@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function AboutUs(){
     return(
         <div class="pages">

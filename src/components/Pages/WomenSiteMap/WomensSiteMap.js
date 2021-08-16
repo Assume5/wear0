@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function WomenSiteMap(){
     return(
         <div class="pages">

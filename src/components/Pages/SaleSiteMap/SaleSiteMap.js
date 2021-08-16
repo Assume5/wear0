@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function SaleSiteMap(){
     return(
         <div class="pages" >

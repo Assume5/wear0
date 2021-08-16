@@ -1,5 +1,4 @@
 import Background from "../Background/Background"
-import './NotFound.scss'
 import {Button} from 'react-bootstrap';
 export default function NotFound(){
     return(

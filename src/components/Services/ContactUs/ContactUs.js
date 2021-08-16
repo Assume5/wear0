@@ -1,4 +1,3 @@
-import '../ServicesBackground/services.scss'
 import {Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeSquare, faPhoneSquare } from '@fortawesome/free-solid-svg-icons'

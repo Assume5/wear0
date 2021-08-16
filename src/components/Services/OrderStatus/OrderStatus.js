@@ -1,4 +1,3 @@
-import '../ServicesBackground/services.scss'
 import {Button} from 'react-bootstrap';
 import {Animated} from "react-animated-css";
 export default function OrderStatus(){
@@ -23,7 +22,10 @@ export default function OrderStatus(){
                       />
                 </div>
                 <br/>
-                <Button size="md" variant="dark" className="shadow-5 grow br3 w-30">Submit</Button>
+                <Button size="md" variant="dark" className="shadow-5 grow br3 w-30"     
+                onClick={(e) => {e.preventDefault();window.location.href='/orders';}}>
+                  Submit
+                </Button>
             </Animated>
         </div>
     )

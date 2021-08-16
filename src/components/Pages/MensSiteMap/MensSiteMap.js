@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function MensSiteMap(){
     return(
         <div class="pages">

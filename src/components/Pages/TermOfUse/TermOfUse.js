@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function TermOfUse(){
     return(
         <div class="pages">

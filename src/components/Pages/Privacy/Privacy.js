@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function Privacy(){
     return(
         <div class="pages">

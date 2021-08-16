@@ -1,5 +1,4 @@
 import React from 'react'
-import './Orders.scss'
 import Informations from './Informations/Informations'
 import OrdersCart from './Carts/OrdersCart'
 import logo_icon from '../Navbar/logo.png'

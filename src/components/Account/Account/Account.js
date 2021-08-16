@@ -1,5 +1,4 @@
 import React from 'react'
-import './Account.scss'
 import AccountDeatils from './AccoutDeatils/AccountDeatils'
 import PastOrders from './PastOrders/PastOrders'
 class Account extends React.Component{

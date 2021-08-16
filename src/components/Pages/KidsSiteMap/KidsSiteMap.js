@@ -1,4 +1,3 @@
-import '../PagesBackground.scss'
 export default function KidsSiteMap(){
     return(
         <div class="pages">
