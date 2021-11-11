@@ -1,5 +1,5 @@
 import React from 'react'
-import './Content.css'
+// import './Content.css'
 import {Animated} from "react-animated-css";
 import {BrowserView, MobileView} from 'react-device-detect';
 import { Button } from 'react-bootstrap'

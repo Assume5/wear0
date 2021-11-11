@@ -1,11 +1,10 @@
-import './BackgroundAccount.css'
 import {Animated} from "react-animated-css";
 import {BrowserView, MobileView} from 'react-device-detect';
 import Login from '../../Account/Login/Login'
 import Signup from '../../Account/Signup/Signup'
 function BackgroundAccount({route,h5Txt,h1Txt}){
     return(
-        <div className="background">
+        <div className="background-account">
             <div className="item">
                 {           
                     route==='login'?     

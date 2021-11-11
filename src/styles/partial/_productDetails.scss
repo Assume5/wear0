@@ -1,78 +1,88 @@
-.ProductDetailContainer{
+.ProductDetailContainer {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     -webkit-animation: fadeIn 1s;
 
+    p {
+        color: #707070;
+    }
+
+    .ProductImageContainer {
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 30%;
+
+        img {
+            max-width: 450px;
+            margin: 3%;
+        }
+    }
+
+    .ProductInfoContainer {
+        margin-top: 10%;
+        width: 30%;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+
+        hr {
+            width: 100%;
+        }
+    }
+
+    .InfoDetails {
+        margin-bottom: 3%;
+    }
+
+    .SizeList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .SizeInStock {
+        width: 15%;
+        border: 1px solid #707070;
+        margin: 2%;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .SizeNoStock {
+        min-width: 15%;
+        border: 1px solid #707070;
+        margin: 2%;
+        text-align: center;
+        background-color: #d3d3d3;
+        cursor: no-drop;
+        padding: 10px;
+    }
 }
-.ProductDetailContainer p{
-    color: #707070;
-  
-}
-.ProductImageContainer{
-    margin-top: 5%;
-    display:flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin-left: 24%;
-    width: 30%;
-}
-.ProductImageContainer img{
-    max-width: 450px;
-    margin: 3%;
-}
-.ProductInfoContainer{
-    margin-top: 10%;
-    width: 30%;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-}
-.ProductInfoContainer hr{
-    width: 100%;
-}
-.InfoDetails{
-    margin-bottom: 3%;
-}
-.SizeList{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.SizeInStock{
-    width: 15%;
-    border: 1px solid #707070;
-    margin: 2%;
-    text-align: center;
-    color:black;
-    cursor:pointer;
-    padding:10px;
-}
-.SizeNoStock{
-    min-width: 15%;
-    border: 1px solid #707070;
-    margin: 2%;
-    text-align: center;
-    color:black;
-    background-color: #d3d3d3;
-    cursor: no-drop;
-    padding:10px;
-}
+
 @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeInLeftDetail {
     from {
-        opacity:0;
+        opacity: 0;
         -webkit-transform: translatex(-10px);
         -moz-transform: translatex(-10px);
         -o-transform: translatex(-10px);
         transform: translatex(-10px);
     }
     to {
-        opacity:1;
+        opacity: 1;
         -webkit-transform: translatex(0);
         -moz-transform: translatex(0);
         -o-transform: translatex(0);
@@ -81,14 +91,14 @@
 }
 @-moz-keyframes fadeInLeftDetail {
     from {
-        opacity:0;
+        opacity: 0;
         -webkit-transform: translatex(-10px);
         -moz-transform: translatex(-10px);
         -o-transform: translatex(-10px);
         transform: translatex(-10px);
     }
     to {
-        opacity:1;
+        opacity: 1;
         -webkit-transform: translatex(0);
         -moz-transform: translatex(0);
         -o-transform: translatex(0);
@@ -97,14 +107,14 @@
 }
 @keyframes fadeInLeftDetail {
     from {
-        opacity:0;
+        opacity: 0;
         -webkit-transform: translatex(-100px);
         -moz-transform: translatex(-100px);
         -o-transform: translatex(-100px);
         transform: translatex(-100px);
     }
     to {
-        opacity:1;
+        opacity: 1;
         -webkit-transform: translatex(0);
         -moz-transform: translatex(0);
         -o-transform: translatex(0);
@@ -126,7 +136,7 @@
     animation-duration: 1s;
     -webkit-animation-delay: 0s;
     -moz-animation-delay: 0s;
-    -o-animation-duration:1s;
+    -o-animation-duration: 1s;
     animation-delay: 0s;
 }
 .in-left2 {
@@ -144,7 +154,7 @@
     animation-duration: 1s;
     -webkit-animation-delay: 0.5s;
     -moz-animation-delay: 0.5s;
-    -o-animation-duration:1s;
+    -o-animation-duration: 1s;
     animation-delay: 0.5s;
 }
 .in-left3 {
@@ -162,7 +172,7 @@
     animation-duration: 1s;
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
-    -o-animation-duration:1s;
+    -o-animation-duration: 1s;
     animation-delay: 1s;
 }
 .in-left4 {
@@ -180,41 +190,38 @@
     animation-duration: 1s;
     -webkit-animation-delay: 1.5s;
     -moz-animation-delay: 1.5s;
-    -o-animation-duration:1s;
+    -o-animation-duration: 1s;
     animation-delay: 1.5s;
 }
 
-
 @media (max-width: 700px) {
-    .SizeInStock{
-        min-width:20%;
-
+    .SizeInStock {
+        min-width: 20% !important;
     }
-    .SizeNoStock{
-        min-width:20%; 
+    .SizeNoStock {
+        min-width: 20% !important;
     }
-  }
+}
 @media (max-width: 800px) {
-    .ProductDetailContainer{
+    .ProductDetailContainer {
         flex-direction: column-reverse;
-
     }
-    .ProductImageContainer{
-        width: 70%;
+    .ProductImageContainer {
+        width: 70% !important;
         margin: 0 auto;
     }
-    .ProductInfoContainer{
-        width: 80%;
+    .ProductInfoContainer {
+        width: 80% !important;
         margin-top: 25%;
         margin-left: 10%;
         margin-bottom: 10%;
     }
-  }
-  @media (min-width: 768px) and (max-width: 1024px){
-    .ProductInfoContainer{
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ProductInfoContainer {
         margin-left: 10%;
     }
-    .ProductImageContainer{
+    .ProductImageContainer {
         margin-top: 5%;
     }
 }

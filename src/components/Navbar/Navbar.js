@@ -1,4 +1,3 @@
-import './Navbar.css'
 import { Navbar, Nav, NavDropdown,Form,FormControl,Button } from 'react-bootstrap';
 import logo_icon from './logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

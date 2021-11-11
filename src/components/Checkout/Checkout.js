@@ -1,5 +1,4 @@
 import React from 'react'
-import './Checkout.css'
 import CheckoutUserInfo from './CheckoutUserAddressInfo'
 import CheckoutCart from'./CheckoutCart'
 import CheckoutUserPaymentInfo from './CheckoutUserPaymentInfo'

@@ -62,7 +62,7 @@ class Login extends React.Component{
                         onChange={this.onPasswordChange}
                       />
                     </div>
-                    <label class="pa0 ma0 lh-copy f6 pointer"><input type="checkbox"/> Remember me</label>
+                    <label class="pa0 ma0 lh-copy f6 pointer white"><input type="checkbox"/> Remember me</label>
                   </fieldset>
                   <div className="">
                     <input

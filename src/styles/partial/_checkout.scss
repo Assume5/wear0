@@ -1,55 +1,60 @@
 .checkout-container{
     margin-top:5%;
     display: flex;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     resize: both;
     margin-bottom: 5%;
-}
 
-.user-info{
-    width: 30%;
-}
-.bag-info{
-    width: 30%;
-    margin-left: 3%;
-}
-.bag-info img{
-    width:50%;
-}
-.bag-info hr{
-    margin-left: 5%;
-    margin-bottom: 3%;
-    margin-right: 5%;
-}
-.checkoutLogo{
-    max-width: 50%;
-    display: block;
-    margin-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-}
-.CheckoutColapse{
-    display: none;
-}
-.CheckoutCartInfo{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-bottom: 5%;
-}
-.CheckoutCartInfo .CheckoutCartDetails{
-    width: 33%;
-}
+    .user-info{
+        width: 30%;
+    }
 
-.CheckoutRecap{
-    margin-left: 5%;
-    margin-bottom: 5%;
-    margin-right: 5%;
+    .bag-info{
+        width: 30%;
+        margin-left: 3%;
+
+        img{
+            width:50%;
+        }
+
+        hr{
+            margin-left: 5%;
+            margin-bottom: 3%;
+            margin-right: 5%;
+        }
+    }
+
+    .checkoutLogo{
+        max-width: 50%;
+        display: block;
+        margin-top: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5%;
+    }
+
+    .CheckoutColapse{
+        display: none;
+    }
+
+    .CheckoutCartInfo{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-bottom: 5%;
+
+        .CheckoutCartDetails{
+            width: 33%;
+        }
+    }
+
+    .CheckoutRecap{
+        margin-left: 5%;
+        margin-bottom: 5%;
+        margin-right: 5%;
+    }
 }
 
 @media (max-width: 800px) {

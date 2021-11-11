@@ -1,4 +1,3 @@
-import './Background.css'
 import {Button } from 'react-bootstrap';
 import {Animated} from "react-animated-css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,0 +1,82 @@
+.background {
+    width: 100%;
+    min-height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #201d37;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    resize: both;
+    /* visibility: hidden; */
+
+    h1,
+    h5 {
+        color: white;
+    }
+
+    .background_img {
+        padding: 3%;
+        object-fit: cover;
+        width: 100%;
+        overflow: hidden;
+        max-width: 1000px;
+    }
+
+    .item {
+        flex: auto;
+    }
+
+    .background_text {
+        margin: 3%;
+    }
+
+    .shop {
+        display: inline-block;
+        position: relative;
+        top: 0;
+        transition: top ease 0.5s;
+    }
+
+    .shop:hover {
+        top: -5px;
+    }
+
+    h1,
+    h5 {
+        color: white;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .background {
+        flex-direction: column;
+    }
+
+    .item {
+        flex: auto;
+    }
+
+    .background_img {
+        margin: 0 auto;
+    }
+
+    .background_text h5 {
+        margin-top: 40%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .background_img {
+        max-width: 90%;
+    }
+
+    .shop {
+        margin: 2%;
+    }
+}
+
