@@ -39,6 +39,7 @@ function CheckoutUserAddressInfo({OnChangeStepClick,OnChangeAddressInput}){
                     <label className="db fw6 lh-copy f6 black  " htmlFor="phone">Phone</label>
                     <input id="phone" className=" ba b--black-20 pa2 mb2 db w-100" onChange={OnChangeAddressInput} type="text" aria-describedby="name-desc" placeholder="XXXXXXXXXX"maxlength="10"/>
                 </div>
+                <label class="pa0 ma0 lh-copy f6 pointer black d-flex justify-content-start align-items-center ml-2"><input type="checkbox" class=" mr-2"/> Remember this address</label>
                 <Button variant="dark"  className="shop m-3 shadow-3 grow fr w-40" onClick={()=>OnChangeStepClick("UserPaymentInfo")}>Continue to Payment</Button>
         </div>
     )
