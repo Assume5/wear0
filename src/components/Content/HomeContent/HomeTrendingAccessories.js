@@ -21,7 +21,7 @@ function HomeTrendingAccessories({productdetailsTrending,isPosition,onProductCar
                     isPosition = {isPosition}
                     productimageHover={productimageTrendingHover}
                     animationDelay={100+i*100}
-
+                    key={x}
                 />
             )
         }

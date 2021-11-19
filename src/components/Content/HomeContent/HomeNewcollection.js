@@ -23,6 +23,7 @@ function HomeNewcollection({productdetailsNewCollection,isPosition,onProductCard
                     animationDelay={100+i*100}
                     onProductCardClick={onProductCardClick}
                     productstock={productstockNewCollection}
+                    key={x}
                 />
             )
         }

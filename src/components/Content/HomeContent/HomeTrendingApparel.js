@@ -24,6 +24,7 @@ function HomeTrendingApparel({productdetailsTrending,isPosition,onProductCardCli
                     animationDelay={100+i*100}
                     onProductCardClick={onProductCardClick}
                     productstock={productstockTrending}
+                    key={x}
                 />
             )
         }

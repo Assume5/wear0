@@ -1,6 +1,6 @@
 export default function SaleSiteMap(){
     return(
-        <div class="pages" >
+        <div className="pages" >
             <h5 className="f4">Sales Site Map</h5>            
             <div className="link">
                 <a href="/sale/men">

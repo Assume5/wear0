@@ -1,6 +1,6 @@
 export default function Privacy(){
     return(
-        <div class="pages">
+        <div className="pages">
             <p className="f2 mb-5">Privacy Policy</p>
             <p className="f4">Privacy Policy</p>
             <div className="sub w-50 f6 mb-5" style={{textAlign:'left'}}>

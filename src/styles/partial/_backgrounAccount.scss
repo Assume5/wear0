@@ -30,6 +30,17 @@
         object-fit: cover;
         width: 1000px;
     }
+
+    .input-fail {
+        border-color: red;
+    }
+
+    .error-message {
+        color: red;
+        height: 24px;
+        font-size: 12px;
+        margin: 0px;
+    }
 }
 
 @media (max-width: 800px) {

@@ -30,20 +30,20 @@ export default function Informations({information}){
                 <BrowserView>
                     <img src = {logo_icon} alt="" className="logo pointer" onClick={event =>  window.location.href='/'}/>
                 </BrowserView>
-                <div class="timeline-container">
+                <div className="timeline-container">
                     <h1 className="f4">Tracking Information</h1>
                     <div className="timeline">
-                        <div class="timeline-icons">
+                        <div className="timeline-icons">
                             <FontAwesomeIcon icon={faCheck}/>
                             <p className="f6">Confirm</p>
                         </div>
-                        <span class="divider-ship"></span>
-                        <div class="timeline-icons">
+                        <span className="divider-ship"></span>
+                        <div className="timeline-icons">
                             <FontAwesomeIcon icon={faTruck}/>
                             <p className="f6">Shipped</p>
                         </div>
-                        <span class="divider-delivery"></span>
-                        <div class="timeline-icons">
+                        <span className="divider-delivery"></span>
+                        <div className="timeline-icons">
                             <FontAwesomeIcon icon={faHome}/>
                             <p className="f6">Delivered</p>
                         </div>

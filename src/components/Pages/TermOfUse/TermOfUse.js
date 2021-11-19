@@ -1,6 +1,6 @@
 export default function TermOfUse(){
     return(
-        <div class="pages">
+        <div className="pages">
             <p className="f2 mb-5">Terms and Conditions</p>
             <div className="sub w-50 f6 mb-5" style={{textAlign:'left'}}>
                 <p>

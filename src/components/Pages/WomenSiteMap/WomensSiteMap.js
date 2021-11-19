@@ -1,6 +1,6 @@
 export default function WomenSiteMap(){
     return(
-        <div class="pages">
+        <div className="pages">
             <h5 className="f4">Women Site Map</h5>            
             <div className="link">
                 <a href="/women/footWear">

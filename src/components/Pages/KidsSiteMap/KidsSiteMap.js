@@ -1,6 +1,6 @@
 export default function KidsSiteMap(){
     return(
-        <div class="pages">
+        <div className="pages">
             <h5 className="f4">Kids Site Map</h5>            
             <div className="link">
                 <a href="/kids/footWear">
