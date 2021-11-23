@@ -1,6 +1,8 @@
 import React from "react";
 import { serverUrl } from "../../../constants/Global";
-import { setCookie } from "../../../constants/GlobalFunction";
+import { setCookie, getCookie } from "../../../constants/GlobalFunction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 class Login extends React.Component {
     constructor(props) {
         super();
@@ -9,6 +11,7 @@ class Login extends React.Component {
             SigninPassword: "",
             errorMessage: "",
             rememberMe: false,
+            buttonSubmit: false,
         };
     }
 
@@ -27,6 +30,8 @@ class Login extends React.Component {
     onSubmitSignIn = () => {
         let allInput = true;
         this.setState({ errorMessage: "" });
+        this.setState({ waitingMessage: "Please Wait" });
+        this.setState({ buttonSubmit: true });
         const re =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!re.test(String(this.state.SigninEmail).toLowerCase())) {
@@ -37,6 +42,8 @@ class Login extends React.Component {
         }
         if (!allInput) {
             this.setState({ errorMessage: "Email or Password incorrect" });
+            this.setState({ waitingMessage: "" });
+            this.setState({ buttonSubmit: false });
         }
 
         if (allInput) {
@@ -50,20 +57,30 @@ class Login extends React.Component {
             })
                 .then((response) => response.json())
                 .then((data) => {
+                    this.setState({ waitingMessage: "" });
                     if (data.success === true) {
-                        this.props.loginSubmit(data.fullname, data.id);
                         if (this.state.rememberMe) {
-                            setCookie("rem", "true", 7);
+                            setCookie("_rem", "true", 7);
+                            setCookie("_id", data.id, 7);
                         } else {
-                            setCookie("rem", "true", 1);
+                            setCookie("_rem", "true", 1);
+                            setCookie("_id", data.id, 1);
                         }
-                        // window.location = "./account";
+                        window.location = "./account";
                     } else {
                         this.setState({ errorMessage: data });
+                        this.setState({ buttonSubmit: false });
                     }
                 });
         }
     };
+    componentDidMount() {
+        let rem = getCookie("_rem");
+        let id = getCookie("_id");
+        if (rem && id) {
+            window.location = "./account";
+        }
+    }
     render() {
         return (
             <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center black">
@@ -117,12 +134,20 @@ class Login extends React.Component {
                                 Remember me for 7 days
                             </label>
                         </fieldset>
-                        <div className="">
+                        <div className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white">
                             <input
-                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white"
+                                className="bg-transparent pointer white border-0"
                                 type="submit"
                                 value="Sign in"
                                 onClick={this.onSubmitSignIn}
+                            />
+                            <FontAwesomeIcon
+                                className={`FontAwesomeIcon ${
+                                    this.state.buttonSubmit
+                                        ? "fa-spin"
+                                        : "d-none"
+                                }`}
+                                icon={faCircleNotch}
                             />
                         </div>
                         <div className="lh-copy mt3">

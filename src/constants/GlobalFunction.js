@@ -7,4 +7,8 @@ function getCookie(name) {
     return Cookies.get(name);
 }
 
-export { setCookie, getCookie };
+function removeCookie(name, path) {
+    Cookies.remove(name, { path: '' })
+}
+
+export { setCookie, getCookie, removeCookie };

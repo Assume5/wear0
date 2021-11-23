@@ -1,6 +1,8 @@
 import "./App.css";
 import "./styles/main.scss";
 import { serverUrl } from "./constants/Global";
+import { getCookie } from "./constants/GlobalFunction";
+
 import "tachyons";
 import "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -47,11 +49,9 @@ class App extends React.Component {
         super();
         this.state = {
             user: {
-                name: "",
                 id: "",
                 login: false,
             },
-            checked: false, //check only once when user enter home page
         };
     }
 
@@ -65,41 +65,14 @@ class App extends React.Component {
     onUserShoppingBagClick = () => {
         window.location = "/cart";
     };
-    onLoginSubmit = (name, id) => {
-        console.log(name, id);
-        this.setState({
-            user: {
-                name: name,
-                id: id,
-                login: true,
-            },
-        });
-    };
+
     componentDidMount() {
-      console.log(this.state)
+        let rem = getCookie("_rem");
+        let id = getCookie("_id");
         //check if this user has login before
-        if (!this.state.checked) {
-            fetch(`${serverUrl}/checkLogin`, {
-                method: "post",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({}),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.success === true) {
-                        this.setState({
-                            user: {
-                                name: data.fullname,
-                                id: data.id,
-                                login: true,
-                            },
-                        });
-                    }
-                });
-
+        if (rem && id) {
+            this.setState({user: {id: id, login: true}})
         }
-        this.setState({ checked: true });
-
     }
     render() {
         return (

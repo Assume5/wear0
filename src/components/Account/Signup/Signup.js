@@ -1,5 +1,8 @@
 import React from "react";
 import { serverUrl } from "../../../constants/Global";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { getCookie } from "../../../constants/GlobalFunction";
 
 class Signup extends React.Component {
     constructor() {
@@ -12,6 +15,7 @@ class Signup extends React.Component {
             nameErrorMessage: "",
             emailErrorMessage: "",
             passwordErrorMessage: "",
+            buttonSubmit: false,
         };
     }
 
@@ -29,6 +33,7 @@ class Signup extends React.Component {
         this.setState({ nameErrorMessage: "" });
         this.setState({ emailErrorMessage: "" });
         this.setState({ passwordErrorMessage: "" });
+        this.setState({ buttonSubmit: true });
 
         const re =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,33 +51,45 @@ class Signup extends React.Component {
             allInput = false;
             this.setState({ nameErrorMessage: "Please enter your name" });
         }
-        if(allInput) {
-          fetch(`${serverUrl}/register`, {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                email: this.state.registerEmail,
-                password: this.state.registerPassword,
-                name: this.state.registerName,
-            }),
-        })
-            .then((response) => response.json())
-            .then((respond) => {
-                console.log(respond)
-                if (respond === true) {
-                    window.location = "./login";
-                }
-                else {
-                    this.setState({ emailErrorMessage: "Invalid email" });
-                }
-            });
+        if (!allInput) {
+            this.setState({ buttonSubmit: false });
         }
-  
+        if (allInput) {
+            fetch(`${serverUrl}/register`, {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: this.state.registerEmail,
+                    password: this.state.registerPassword,
+                    name: this.state.registerName,
+                }),
+            })
+                .then((response) => response.json())
+                .then((respond) => {
+                    console.log(respond);
+                    if (respond === true) {
+                        window.location = "./login";
+                    } else {
+                        this.setState({ emailErrorMessage: "Invalid email" });
+                        this.setState({ buttonSubmit: false });
+                    }
+                });
+        }
+
         // this.props.onRouteChange("register");
     };
     onLoginClick = () => {
         window.location = "./login";
     };
+
+    componentDidMount() {
+        let rem = getCookie("_rem");
+        let id = getCookie("_id");
+        if (rem && id) {
+            window.location = "./account";
+        }
+    }
+
     render() {
         console.log(`${serverUrl}/register`);
         return (
@@ -152,12 +169,20 @@ class Signup extends React.Component {
                                 </p>
                             </div>
                         </fieldset>
-                        <div className="">
+                        <div className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white">
                             <input
-                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white"
+                                className="bg-transparent pointer white border-0"
                                 type="submit"
                                 value="Register"
                                 onClick={this.onRegisterButton}
+                            />
+                            <FontAwesomeIcon
+                                className={`FontAwesomeIcon ${
+                                    this.state.buttonSubmit
+                                        ? "fa-spin"
+                                        : "d-none"
+                                }`}
+                                icon={faCircleNotch}
                             />
                         </div>
                         <div className="lh-copy mt3">

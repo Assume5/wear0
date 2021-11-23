@@ -1,6 +1,7 @@
 import React from 'react'
 import AccountDeatils from './AccoutDeatils/AccountDeatils'
 import PastOrders from './PastOrders/PastOrders'
+import { removeCookie } from '../../../constants/GlobalFunction'
 class Account extends React.Component{
     constructor() {
         super()
@@ -18,6 +19,8 @@ class Account extends React.Component{
 
     SignOutClick = () => {
         window.location = "/"
+        removeCookie("_rem","")
+        removeCookie("_id","")
     }
 
 
