@@ -27,6 +27,11 @@ class Login extends React.Component {
     onRememberMe = () => {
         this.setState({ rememberMe: !this.state.rememberMe });
     };
+    onEnterPress = (event) => {
+        if (event.key === "Enter") {
+            this.onSubmitSignIn();
+        }
+    }
     onSubmitSignIn = () => {
         let allInput = true;
         this.setState({ errorMessage: "" });
@@ -106,6 +111,7 @@ class Login extends React.Component {
                                     name="email-address"
                                     id="email-address"
                                     onChange={this.onEmailChange}
+                                    onKeyDown={this.onEnterPress}
                                 />
                             </div>
                             <div className="mv3">
@@ -121,6 +127,7 @@ class Login extends React.Component {
                                     name="password"
                                     id="password"
                                     onChange={this.onPasswordChange}
+                                    onKeyDown={this.onEnterPress}
                                 />
                             </div>
                             <p className="error-message">
@@ -140,6 +147,7 @@ class Login extends React.Component {
                                 type="submit"
                                 value="Sign in"
                                 onClick={this.onSubmitSignIn}
+                                onKeyDown={this.onEnterPress}
                             />
                             <FontAwesomeIcon
                                 className={`FontAwesomeIcon ${

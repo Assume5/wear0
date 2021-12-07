@@ -1,0 +1,23 @@
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    
+    .product-filter {
+        width: 24%;
+        margin-top: 3%;
+        max-height: 500px;
+        border: 1px solid gray;
+        padding: 0px 15px;
+    }
+
+    .Content {
+        min-width: 0vw;
+        width: 75%;
+        max-width: 75%;
+
+        .item_content {
+            width: 32%;
+        }
+    }
+}

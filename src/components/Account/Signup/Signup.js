@@ -28,6 +28,11 @@ class Signup extends React.Component {
     onPasswordChange = (event) => {
         this.setState({ registerPassword: event.target.value });
     };
+    onEnterPress = (event) => {
+        if (event.key === "Enter") {
+            this.onRegisterButton();
+        }
+    }
     onRegisterButton = () => {
         let allInput = true;
         this.setState({ nameErrorMessage: "" });
@@ -70,7 +75,7 @@ class Signup extends React.Component {
                     if (respond === true) {
                         window.location = "./login";
                     } else {
-                        this.setState({ emailErrorMessage: "Invalid email" });
+                        this.setState({ emailErrorMessage: respond});
                         this.setState({ buttonSubmit: false });
                     }
                 });
@@ -119,6 +124,7 @@ class Signup extends React.Component {
                                     type="text"
                                     name="name"
                                     onChange={this.onNameChange}
+                                    onKeyDown={this.onEnterPress}
                                 />
                                 <p className="error-message">
                                     {this.state.nameErrorMessage}
@@ -140,6 +146,7 @@ class Signup extends React.Component {
                                     type="email"
                                     name="email-address"
                                     onChange={this.onEmailChange}
+                                    onKeyDown={this.onEnterPress}
                                 />
                                 <p className="error-message">
                                     {this.state.emailErrorMessage}
@@ -163,6 +170,7 @@ class Signup extends React.Component {
                                     name="password"
                                     id="registerPassword"
                                     onChange={this.onPasswordChange}
+                                    onKeyDown={this.onEnterPress}
                                 />
                                 <p className="error-message">
                                     {this.state.passwordErrorMessage}

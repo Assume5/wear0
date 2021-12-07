@@ -1,4 +1,4 @@
-import Content from '../Content'
+import Content from '../../Content/Content'
 import { Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
@@ -7,6 +7,8 @@ import HomeNewcollection from './HomeNewcollection'
 import HomeTrendingApparel from './HomeTrendingApparel'
 import HomeTrendingAccessories from './HomeTrendingAccessories'
 import HomeTrendingFootwear from './HomeTrendingFootwear'
+import { serverUrl } from '../../../constants/Global'
+
 class HomeContentList extends Component{
     constructor(){
         super()
@@ -139,30 +141,33 @@ class HomeContentList extends Component{
         window.location="/productdetails/"+id
     }
     render(){
-        const {productdetailsNewCollection,productdetailsTrending} = this.props
-        const {productTrendingId,productnameTrending,productpriceTrending,productimageTrending,productimageTrendingHover,productaltTrending,productstockTrending}=productdetailsTrending
+        const {productdetailsNewCollection,productdetailsTrendingApparel,productdetailsTrendingFootwear,productdetailsTrendingAccessories} = this.props
         return(
             <div>
                 <HomeNewcollection 
                     productdetailsNewCollection={productdetailsNewCollection}
                     isPosition={this.state.isPositionNewCollection}
                     onProductCardClick={this.onProductCardClick}
+                    serverUrl = {serverUrl}
                 />
 
                 <HomeTrendingApparel
-                    productdetailsTrending={productdetailsTrending}
+                    productdetailsTrendingApparel={productdetailsTrendingApparel}
                     isPosition={this.state.isPositionHomeTrendingApparel}
                     onProductCardClick={this.onProductCardClick}
+                    serverUrl = {serverUrl}
                 />
                <HomeTrendingFootwear
-                    productdetailsTrending={productdetailsTrending}
+                    productdetailsTrendingFootwear={productdetailsTrendingFootwear}
                     isPosition={this.state.isPositionHomeTrendingFootwear}
                     onProductCardClick={this.onProductCardClick}
+                    serverUrl = {serverUrl}
                 />
                 <HomeTrendingAccessories
-                    productdetailsTrending={productdetailsTrending}
+                    productdetailsTrendingAccessories={productdetailsTrendingAccessories}
                     isPosition={this.state.isPositionHomeTrendingAccessories}
                     onProductCardClick={this.onProductCardClick}
+                    serverUrl = {serverUrl}
                 /> 
             </div>
         )

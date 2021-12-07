@@ -1,6 +1,6 @@
 import "./App.css";
 import "./styles/main.scss";
-import { serverUrl } from "./constants/Global";
+// import { serverUrl } from "./constants/Global";
 import { getCookie } from "./constants/GlobalFunction";
 
 import "tachyons";
@@ -9,7 +9,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import New from "./components/New/New";
-import KidsAccessories from "./components/Kid/Accessories/KidsAccessories";
 import KidsApparel from "./components/Kid/Apparel/KidsApparel";
 import KidsFootwear from "./components/Kid/Footwear/KidsFootWear";
 import MenAccessories from "./components/Men/Accessories/MenAccessories";
@@ -87,10 +86,6 @@ class App extends React.Component {
                         <Route path="/new" component={New} />
                         <Route path="/kids/footwear" component={KidsFootwear} />
                         <Route path="/kids/apparel" component={KidsApparel} />
-                        <Route
-                            path="/kids/accessories"
-                            component={KidsAccessories}
-                        />
                         <Route path="/men/footwear" component={MenFootwear} />
                         <Route path="/men/apparel" component={MenApparel} />
                         <Route
