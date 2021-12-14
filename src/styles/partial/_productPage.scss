@@ -1,23 +1,94 @@
 .product-details {
     display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
-    
+    flex-wrap: wrap;
+
     .product-filter {
-        width: 24%;
-        margin-top: 3%;
+        width: 100%;
         max-height: 500px;
-        border: 1px solid gray;
         padding: 0px 15px;
+        display: flex;
+        text-align: left !important;
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        padding: 15px;
+        color: white;
+
+        > div {
+            padding-left: 50px;
+        }
+
+        .product-filter-content {
+            .header {
+
+                svg {
+                    transition: transform 0.3s ease-in;
+                }
+
+                h5 {
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+
+            .filter-content {
+                background: white;
+                color: black;
+                border-radius: 10px;
+                width: 300px;
+                max-height: 0px;
+                overflow: hidden;
+                transition: max-height .5s;
+                position: absolute;
+                z-index: 10;
+                opacity: 0;
+
+                .filter-item {
+                    
+                    label {
+                        display: flex;
+                        align-items: center;
+                        height: 54px;
+                        margin-bottom: 0px;
+                        cursor: pointer;
+                    }
+
+                    input {
+                        width: 24px;
+                        height: 24px;
+                        margin: 0px 15px;
+
+                        &:checked {
+                            background: white;
+                        }
+                    }
+                }
+            }
+
+            &.collapse-show {
+                .header {
+                    h5 {
+                        svg {
+                            transform: rotate(-180deg);
+                        }
+                    }
+    
+                    .filter-content {
+                        display: block;
+                    }
+                }
+
+                .filter-content {
+                    display: block;
+                    opacity: 1;
+                }
+            }
+        }
     }
 
     .Content {
         min-width: 0vw;
-        width: 75%;
-        max-width: 75%;
-
-        .item_content {
-            width: 32%;
-        }
+        width: 100%;
+        max-width: 100%;
+        background-color: unset;
+        margin-top: 0px;
     }
 }

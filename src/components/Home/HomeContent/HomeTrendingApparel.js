@@ -28,6 +28,7 @@ function HomeTrendingApparel({productdetailsTrendingApparel,isPosition,onProduct
                         key={data[key]['productId']}
                     />
                 )
+                return(<></>)
             })
         }
         <div className="bottom_tittle" >

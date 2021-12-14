@@ -1,7 +1,11 @@
 import "./App.css";
 import "./styles/main.scss";
-// import { serverUrl } from "./constants/Global";
-import { getCookie } from "./constants/GlobalFunction";
+import { serverUrl } from "./constants/Global";
+import {
+    getCookie,
+    generateGuestCookieValues,
+    setCookie,
+} from "./constants/GlobalFunction";
 
 import "tachyons";
 import "react-bootstrap";
@@ -50,6 +54,10 @@ class App extends React.Component {
             user: {
                 id: "",
                 login: false,
+                cartNumber:0
+            },
+            guest: {
+                id: "",
             },
         };
     }
@@ -70,15 +78,59 @@ class App extends React.Component {
         let id = getCookie("_id");
         //check if this user has login before
         if (rem && id) {
-            this.setState({user: {id: id, login: true}})
+            fetch(`${serverUrl}/get-user-cart-number`, {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    cookie: id,
+                }),
+            })
+                .then((respond) => respond.json())
+                .then((data) => {
+                    this.setState({user: {id:id, login: true, cartNumber:data}})
+                });
+        } else {
+            //if this user has not login before generate random cookie values
+            if (!getCookie("_guest")) {
+                generateGuestCookieValues().then((res) => {
+                    setCookie("_guest", res, 3);
+                    fetch(`${serverUrl}/add-gust`, {
+                        method: "post",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            cookie: res,
+                        }),
+                    });
+                });
+            }
+            if (getCookie("_guest")) {
+                let ownerCookie = getCookie("_guest");
+                fetch(`${serverUrl}/get-guest-cart-number`, {
+                    method: "post",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        cookie: ownerCookie,
+                    }),
+                })
+                    .then((respond) => respond.json())
+                    .then((data) => {
+                        this.setState({
+                            guest: { id: ownerCookie },
+                        });
+                        this.setState({ cartNumber: data });
+                        this.setState({user: {id:ownerCookie, login: false, cartNumber:data}})
+                    });
+            }
         }
     }
+
     render() {
         return (
             <div className="App">
                 <Navbar
                     onUserIconClick={this.onUserIconClick}
                     onUserShoppingBagClick={this.onUserShoppingBagClick}
+                    cartNumber={this.state.user.cartNumber}
                 />
                 <BrowserRouter>
                     <Switch>
@@ -133,7 +185,10 @@ class App extends React.Component {
                         <Route
                             path="/productdetails"
                             component={() => (
-                                <ProductDetails user={this.state.user} />
+                                <ProductDetails
+                                    user={this.state.user}
+                                    cartNumber={this.state.user.cartNumber}
+                                />
                             )}
                         />
                         <Route

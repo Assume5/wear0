@@ -3,96 +3,230 @@ import CartItem from "./CartItem";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { serverUrl } from "../../constants/Global";
+
 class Cart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            testing: {},
+            product: [],
             totalItem: 0,
             loaded: false,
             totalPrice: 0,
         };
     }
-    componentDidMount() {
+    async componentDidMount() {
+        console.log(this.props);
         //if i fetch information form server
-        const products = {
-            "1-45": {
-                productimage: "./TestingImage/brown.png",
-                productname: "Kaws Brown",
-                quantity: 1,
-                total: 100,
-            },
-            "1-47": {
-                productimage: "./TestingImage/black.png",
-                productname: "Kaws Black",
-                quantity: 2,
-                total: 110,
-            },
-        };
-        if (Object.keys(products).length) {
-            this.setState({
-                testing: products,
-            });
+        if (this.props.user.id) {
+            const respond = await fetch(
+                `${serverUrl}/get-user-cart-information`,
+                {
+                    method: "post",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userId: this.props.user.id,
+                        guest: `${this.props.user.login ? false : true}`,
+                    }),
+                }
+            );
+            const data = await respond.json();
             let sumPrice = 0;
-            let sumTotalItem = 0;
-            Object.keys(products).map((product, i) => {
-                sumPrice =
-                    sumPrice +
-                    products[product].total * products[product].quantity;
-                return (sumTotalItem += products[product].quantity);
+            let totalItem = 0;
+            data.map((x) => {
+                return (sumPrice += x.productPrice * x.quantity);
             });
-            this.setState({ totalItem: sumTotalItem });
+
+            data.map((x) => {
+                return (totalItem += x.quantity);
+            });
+
+            this.setState({ totalPrice: sumPrice.toFixed(2) });
+            this.setState({ products: data });
             this.setState({ loaded: true });
-            this.setState({ totalPrice: sumPrice });
+            this.setState({ totalItem: totalItem });
         }
     }
 
-    onRemoveClick = (id) => {
-        const quantityRemove = this.state.testing[id].quantity;
-        delete this.state.testing[id];
-        this.setState({ totalItem: this.state.totalItem - quantityRemove });
+    findIndex = (id, size) => {
+        let products = this.state.products;
+        let index = products.findIndex(
+            (x) => x.productid === id && x.productSize === size
+        );
+        return index;
     };
-    onIncreaseClick = (id) => {
-        const testingId = this.state.testing[id];
-        if (testingId.quantity < 9) {
-            this.state.testing[id].quantity += 1;
-            this.setState({ totalItem: this.state.totalItem + 1 });
-            this.setState({
-                totalPrice: this.state.totalPrice + testingId.total,
-            });
+
+    async cartIncrement(product) {
+        const respond = await fetch(`${serverUrl}/update-cart`, {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId: this.props.user.id,
+                guest: `${this.props.user.login ? false : true}`,
+                updateOn: "increase",
+                productId: product.productid,
+                productSize: product.productSize,
+                quantity: product.quantity,
+            }),
+        });
+        const data = await respond.json();
+        if (data === true) {
+            return true;
         }
+    }
+
+    async cartDecrement(product) {
+        const respond = await fetch(`${serverUrl}/update-cart`, {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId: this.props.user.id,
+                guest: `${this.props.user.login ? false : true}`,
+                updateOn: "decrease",
+                productId: product.productid,
+                productSize: product.productSize,
+                quantity: product.quantity,
+            }),
+        });
+        const data = await respond.json();
+        if (data === true) {
+            return true;
+        }
+    }
+
+    async cartRemove(product) {
+        const respond = await fetch(`${serverUrl}/update-cart`, {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId: this.props.user.id,
+                guest: `${this.props.user.login ? false : true}`,
+                updateOn: "remove",
+                productId: product.productid,
+                productSize: product.productSize,
+                quantity: product.quantity,
+            }),
+        });
+        const data = await respond.json();
+        if (data === true) {
+            return true;
+        }
+    }
+
+    updateBadge = () => {
+        let badge = document.querySelector(".nav-icons .icon-wrapper .badge");
+        badge.innerHTML = this.state.totalItem;
     };
-    onDecreaseClick = (id) => {
-        const testingId = this.state.testing[id];
-        if (testingId.quantity > 0) {
-            this.state.testing[id].quantity -= 1;
-            this.setState({ totalItem: this.state.totalItem - 1 });
-            this.setState({
-                totalPrice: this.state.totalPrice - testingId.total,
-            });
-            if (this.state.testing[id].quantity === 0) {
-                delete this.state.testing[id];
+
+    onRemoveClick = (id, size) => {
+        size = `${size === "One Size" ? "0" : size}`;
+        let products = this.state.products;
+        let index = this.findIndex(id, size);
+        this.cartRemove(products[index]).then((res) => {
+            if (res === true) {
+                let quantity = products[index]["quantity"];
+                let totalPrice = quantity * products[index]["productPrice"];
+                let copyProducts = [...products];
+                copyProducts.splice(index, 1);
+
+                this.setState({ products: copyProducts });
+                this.setState({ totalItem: this.state.totalItem - quantity });
+                this.setState({
+                    totalPrice: (
+                        this.state.totalPrice - totalPrice.toFixed(2)
+                    ).toFixed(2),
+                });
+                this.updateBadge();
             }
+        });
+    };
+
+    onIncreaseClick = (id, size) => {
+        size = `${size === "One Size" ? "0" : size}`;
+        let products = this.state.products;
+        let index = this.findIndex(id, size);
+        let currentQuantity = products[index]["quantity"];
+
+        //let quantity = this.state.product[index]["quantity"]
+        this.cartIncrement(products[index]).then((res) => {
+            if (res) {
+                this.setState({
+                    products: [
+                        ...products.slice(0, index),
+                        Object.assign({}, products[index], {
+                            quantity: currentQuantity + 1,
+                        }),
+                        ...products.slice(index + 1),
+                    ],
+                });
+                let totalPrice =
+                    parseFloat(this.state.totalPrice) +
+                    parseFloat(products[index].productPrice);
+                this.setState({ totalItem: this.state.totalItem + 1 });
+                this.setState({
+                    totalPrice: totalPrice.toFixed(2),
+                });
+                this.updateBadge();
+            }
+        });
+    };
+
+    onDecreaseClick = (id, size) => {
+        size = `${size === "One Size" ? "0" : size}`;
+        let products = this.state.products;
+        let index = this.findIndex(id, size);
+
+        if (products[index]["quantity"] === 1) {
+            this.cartRemove(products[index]).then((res) => {
+                if (res) {
+                    let copyProducts = [...products];
+                    copyProducts.splice(index, 1);
+                    this.setState({ products: copyProducts });
+                    this.setState({ totalItem: this.state.totalItem - 1 });
+                    let totalPrice =
+                        parseFloat(this.state.totalPrice) -
+                        parseFloat(products[index].productPrice);
+                    this.setState({
+                        totalPrice: totalPrice.toFixed(2),
+                    });
+                    this.updateBadge();
+                }
+            });
+        } else {
+            let currentQuantity = products[index]["quantity"];
+            this.cartDecrement(products[index]).then((res) => {
+                if (res) {
+                    this.setState({
+                        products: [
+                            ...products.slice(0, index),
+                            Object.assign({}, products[index], {
+                                quantity: currentQuantity - 1,
+                            }),
+                            ...products.slice(index + 1),
+                        ],
+                    });
+                    this.setState({ totalItem: this.state.totalItem - 1 });
+                    let totalPrice =
+                        parseFloat(this.state.totalPrice) -
+                        parseFloat(products[index].productPrice);
+                    this.setState({
+                        totalPrice: totalPrice.toFixed(2),
+                    });
+                    this.updateBadge();
+                }
+            });
         }
     };
+
     onProductImageClick = (id) => {
         window.location = "./productdetails/" + id;
     };
 
     onCheckoutClick = () => {
-        // if(this.props.user.login){ //if user didnt login
-        //     //redirect to checkout page
-        //     window.location="./checkout"
-        // }
-        // else{
-        //     //redirect to login page
-        //     window.location="./login"
-        // }
         window.location = "./checkout";
     };
 
     render() {
-        const { testing } = this.state;
         return !this.state.loaded ? ( //if not loaded yet
             <h1 style={{ marginTop: "10%" }}>Loading</h1>
         ) : this.state.loaded && this.state.totalItem > 0 ? ( //if has items in their bag
@@ -112,18 +246,24 @@ class Cart extends React.Component {
                     </div>
                     <hr style={{ marginTop: "-30px" }}></hr>
                 </div>
-                {Object.keys(testing).map((product, i) => {
+                {this.state.products.map((product, i) => {
                     return (
                         <CartItem
-                            productid={product}
-                            productimage={testing[product].productimage}
-                            productname={testing[product].productname}
-                            quantity={testing[product].quantity}
-                            total={testing[product].total}
+                            productid={product.productid}
+                            productimage={`${serverUrl}${product.productImage}`}
+                            productname={product.productName}
+                            quantity={product.quantity}
+                            total={product.productPrice}
                             onRemoveClick={this.onRemoveClick}
                             onIncreaseClick={this.onIncreaseClick}
                             onDecreaseClick={this.onDecreaseClick}
                             onProductImageClick={this.onProductImageClick}
+                            productSize={`${
+                                product.productSize === "0"
+                                    ? "One Size"
+                                    : product.productSize
+                            }`}
+                            key={i}
                         />
                     );
                 })}

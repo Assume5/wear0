@@ -29,6 +29,7 @@ function HomeTrendingFootwear({productdetailsTrendingFootwear,isPosition,onProdu
                         key={data[key]['productId']}
                     />
                 )
+                return(<></>)
             })
         }
         <div className="bottom_tittle" >

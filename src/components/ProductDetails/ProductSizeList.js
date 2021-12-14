@@ -1,4 +1,5 @@
 import React from 'react'
+//loading https://www.geeksforgeeks.org/how-to-create-skeleton-screen-loading-effect-using-css/
 class ProductSizeList extends React.Component{
     render(){
         const {onSelectSizeClick,stock}=this.props
@@ -7,7 +8,13 @@ class ProductSizeList extends React.Component{
                 <h6>SELECT A SIZE</h6>
                 <div className="SizeList">
                     {
-                        Object.keys(stock).sort().map((size,i)=>{
+                        Object.keys(stock).map((size,i)=>{
+                            if(size === '0') {
+                                return(
+                                    <>
+                                    </>
+                                )
+                            }
                             return(
                                 stock[size]>0?
                                     <p className="f4 br3 SizeInStock" id={size} onClick={()=>onSelectSizeClick(size)}>{size}</p>

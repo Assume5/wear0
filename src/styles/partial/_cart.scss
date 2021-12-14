@@ -35,6 +35,13 @@
         color: #707070;
         width: 25%;
 
+        @media (max-width: 576px) {
+            width: 100%;
+            &:last-child {
+                margin-bottom: 60px;
+            }
+        }
+
         p {
             margin: 3%;
         }

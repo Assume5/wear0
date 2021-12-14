@@ -4,9 +4,10 @@ import { fetchProductDataCategory } from "../../../constants/GlobalFunction";
 import { ProductFilter } from "../../ProductFilter/ProductFilter";
 import { ProductContent } from "../../ProductContent/ProductContent";
 
-function WomenApparel(){
+function WomenApparel() {
     const [data, setData] = useState([]);
-    const category = "WomenApparel"
+    const [filter, setFilter] = useState([]);
+    const category = "WomenApparel";
 
     useEffect(() => {
         fetchProductDataCategory(category).then((response) =>
@@ -14,16 +15,30 @@ function WomenApparel(){
         );
     }, []);
 
-    return(
+    return (
         <div>
-            <Background backGroundImgLink={'http://cdn.shopify.com/s/files/1/0251/3007/4187/collections/gocoop_apparel_campaign_-_WOMAN.jpg?v=1568987843'}
-             h5Txt={'Women Apparel!'} h1Txt={'SHOP NOW!'} route={'new'} />
-             
+            <Background
+                backGroundImgLink={
+                    "http://cdn.shopify.com/s/files/1/0251/3007/4187/collections/gocoop_apparel_campaign_-_WOMAN.jpg?v=1568987843"
+                }
+                h5Txt={"Women Apparel!"}
+                h1Txt={"SHOP NOW!"}
+                route={"new"}
+            />
+
             <div className="product-details">
-                <ProductFilter category={category} />
-                <ProductContent data = {data} />
+                <ProductFilter
+                    category={category}
+                    setFilter={setFilter}
+                    filterData={filter}
+                />
+                <ProductContent
+                    data={data}
+                    filterData={filter}
+                    category={category}
+                />
             </div>
         </div>
-    )
+    );
 }
-export default WomenApparel
+export default WomenApparel;

@@ -1,7 +1,3 @@
-import Content from '../../Content/Content'
-import { Button } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { Component } from 'react'
 import HomeNewcollection from './HomeNewcollection'
 import HomeTrendingApparel from './HomeTrendingApparel'

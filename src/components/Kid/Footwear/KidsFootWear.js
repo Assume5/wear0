@@ -6,7 +6,8 @@ import { ProductContent } from "../../ProductContent/ProductContent";
 
 function KidsFootWear() {
     const [data, setData] = useState([]);
-    const category = "KidApparel"
+    const [filter, setFilter] = useState([]);
+    const category = "KidApparel";
 
     useEffect(() => {
         fetchProductDataCategory(category).then((response) =>
@@ -26,8 +27,16 @@ function KidsFootWear() {
             />
 
             <div className="product-details">
-                <ProductFilter category={category} />
-                <ProductContent data = {data} />
+                <ProductFilter
+                    category={category}
+                    setFilter={setFilter}
+                    filterData={filter}
+                />
+                <ProductContent
+                    data={data}
+                    filterData={filter}
+                    category={category}
+                />
             </div>
         </div>
     );

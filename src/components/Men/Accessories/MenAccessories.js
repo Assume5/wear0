@@ -6,6 +6,7 @@ import { ProductContent } from "../../ProductContent/ProductContent";
 
 function MenAccessories() {
     const [data, setData] = useState([]);
+    const [filter, setFilter] = useState([]);
     const category = "MenAccessories";
 
     useEffect(() => {
@@ -13,7 +14,7 @@ function MenAccessories() {
             setData(response)
         );
     }, []);
-    
+
     return (
         <div>
             <Background
@@ -26,8 +27,16 @@ function MenAccessories() {
             />
 
             <div className="product-details">
-                <ProductFilter category={category} />
-                <ProductContent data={data} />
+                <ProductFilter
+                    category={category}
+                    setFilter={setFilter}
+                    filterData={filter}
+                />
+                <ProductContent
+                    data={data}
+                    filterData={filter}
+                    category={category}
+                />
             </div>
         </div>
     );

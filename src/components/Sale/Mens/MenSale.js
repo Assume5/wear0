@@ -6,6 +6,7 @@ import { ProductContent } from "../../ProductContent/ProductContent";
 
 function MenSale() {
     const [data, setData] = useState([]);
+    const [filter, setFilter] = useState([]);
     const category = "SaleMen";
 
     useEffect(() => {
@@ -22,10 +23,18 @@ function MenSale() {
                 h1Txt={"SHOP NOW!"}
                 route={"new"}
             />
-            
+
             <div className="product-details">
-                <ProductFilter category={category} />
-                <ProductContent data={data} />
+                <ProductFilter
+                    category={category}
+                    setFilter={setFilter}
+                    filterData={filter}
+                />
+                <ProductContent
+                    data={data}
+                    filterData={filter}
+                    category={category}
+                />
             </div>
         </div>
     );

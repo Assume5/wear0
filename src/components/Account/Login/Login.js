@@ -1,6 +1,10 @@
 import React from "react";
 import { serverUrl } from "../../../constants/Global";
-import { setCookie, getCookie } from "../../../constants/GlobalFunction";
+import {
+    setCookie,
+    getCookie,
+    removeCookie,
+} from "../../../constants/GlobalFunction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 class Login extends React.Component {
@@ -31,7 +35,7 @@ class Login extends React.Component {
         if (event.key === "Enter") {
             this.onSubmitSignIn();
         }
-    }
+    };
     onSubmitSignIn = () => {
         let allInput = true;
         this.setState({ errorMessage: "" });
@@ -71,7 +75,27 @@ class Login extends React.Component {
                             setCookie("_rem", "true", 1);
                             setCookie("_id", data.id, 1);
                         }
-                        window.location = "./account";
+                        if (getCookie("_guest")) {
+                            // removeCookie("_guest");
+                            console.log(1)
+                            fetch(`${serverUrl}/transfer-cart`, {
+                                method: "post",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                    guestCookie: getCookie("_guest"),
+                                    userId: data.id,
+                                }),
+                            })
+                                .then((response) => response.json())
+                                .then((res) => {
+                                    console.log(res)
+                                    if (res === "true") {
+                                        removeCookie("_guest");
+                                    }
+                                });
+                            window.location = "./account"
+                        }
+
                     } else {
                         this.setState({ errorMessage: data });
                         this.setState({ buttonSubmit: false });

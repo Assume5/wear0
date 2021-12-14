@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import {Animated} from "react-animated-css";
 import React from 'react';
-function navbar({onUserIconClick,onUserShoppingBagClick}){
+function navbar({onUserIconClick,onUserShoppingBagClick, cartNumber}){
     return(
     <>  
         <Navbar bg="light" expand="lg" sticky="top">
@@ -15,7 +15,6 @@ function navbar({onUserIconClick,onUserShoppingBagClick}){
             <Navbar.Collapse id="navbarScroll" style={{}}>
             <Nav
               className="mr-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
               navbarScroll
             >
               <Nav.Link className="mx-3" href="/">HOME</Nav.Link>
@@ -55,21 +54,24 @@ function navbar({onUserIconClick,onUserShoppingBagClick}){
                 </Animated>
               </NavDropdown>
             </Nav>
-            <div className="icon-wrapper">
-              <FontAwesomeIcon  onClick={onUserShoppingBagClick} className="mx-4 FontAwesomeIcon hasBadge" icon={faShoppingBag} size="2x"/>
-               <span className="badge">2</span>
+            <div className="nav-icons">
+              <div className="icon-wrapper">
+                <FontAwesomeIcon  onClick={onUserShoppingBagClick} className="mx-4 FontAwesomeIcon hasBadge" icon={faShoppingBag} size="2x"/>
+                <span className="badge">{cartNumber}</span>
+              </div>
+              <FontAwesomeIcon onClick={onUserIconClick} className="mx-4 FontAwesomeIcon" icon={faUser} size="2x"/>
+              <Form className="d-flex mx-3">
+                <FormControl
+                  type="text"
+                  placeholder="Search"
+                  className="mr-2"
+                  aria-label="Search"
+                  id="input_search"
+                />
+                <Button variant="dark"><FontAwesomeIcon className="mx-4 FontAwesomeIcon" icon={faSearch}/></Button>
+              </Form>
             </div>
-            <FontAwesomeIcon onClick={onUserIconClick} className="mx-4 FontAwesomeIcon" icon={faUser} size="2x"/>
-            <Form className="d-flex mx-3">
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-2"
-                aria-label="Search"
-                id="input_search"
-              />
-              <Button variant="dark"><FontAwesomeIcon className="mx-4 FontAwesomeIcon" icon={faSearch}/></Button>
-            </Form>
+            
           </Navbar.Collapse>
         </Navbar>
 
