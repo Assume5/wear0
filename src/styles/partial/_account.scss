@@ -1,6 +1,6 @@
 .account {
     align-items: unset !important;
-    height: 100vh;
+
     p{
         color: white;
         margin: 3%;
@@ -13,6 +13,21 @@
     .head {
         margin-top: 5%;
         width: 80%;
+    }
+
+    &.background {
+        padding-top: 80px;
+        
+        @media (max-width: 576px) {
+            justify-content: flex-start;
+        }
+
+        .container {
+            @media (max-width: 576px) {
+                justify-content: flex-start;
+                padding-top: 50px;
+            }
+        }
     }
 
     .past-orders {

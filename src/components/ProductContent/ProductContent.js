@@ -3,7 +3,6 @@ import { serverUrl } from "../../constants/Global";
 import Content from "../Content/Content";
 import { onProductCardClick } from "../../constants/GlobalFunction";
 import { fetchProductSizes } from "../../constants/GlobalFunction";
-const _ = require("lodash");
 export const ProductContent = ({ data, filterData, category }) => {
     const [productSizes, setProductSizes] = useState([]);
     useEffect(() => {
@@ -23,7 +22,7 @@ export const ProductContent = ({ data, filterData, category }) => {
             }
             setProductSizes([tempData]);
         });
-    }, []);
+    }, [category]);
     return (
         <div className="Content">
             {data
@@ -34,11 +33,7 @@ export const ProductContent = ({ data, filterData, category }) => {
                     if (filterData.length === 0) filtered = true;
                     for (let j = 0; j < filterData.length; j++) {
                         let key = Object.keys(filterData[j])[0];
-                        console.log(key);
                         if (key === "productSize") {
-                            console.log(data)
-                            console.log(productSizes[0])
-                            console.log(productSizes[0][data['productId']])
                             if(productSizes[0][data.productId].includes(filterData[j][key])) {
                                 filtered=true;
                             }

@@ -1,11 +1,10 @@
-function OrderConfirmPage({addressInfo,billingInfo,cardNum}){
-    console.log(addressInfo,billingInfo,cardNum)
+function OrderConfirmPage({addressInfo,billingInfo,cardNum, orderId}){
     return(
         <div>
 
             <hr/>
             <h3 className="f3">Thank You For Your Order!</h3>
-            <p className="f4">Order# : 1</p>
+            <p className="f4">Order# : {orderId}</p>
             <hr/>
 
             <p className="f6">Ship to: {addressInfo['firstname']+' '+addressInfo['lastname']}</p>

@@ -28,7 +28,7 @@ class Account extends React.Component{
         return(
             <div className="account background">
                 <div className="container">
-                    <h1 className="f4">Welcome back Chenyi</h1>
+                    <h1 className="f4">Welcome back</h1>
                     <p className="f6 link dim black db pointer white dib" onClick={this.DeatilClick} >
                         Account Detail
                     </p>
@@ -41,9 +41,9 @@ class Account extends React.Component{
                     
                     {
                         this.state.position === 'Details' ?
-                        <AccountDeatils/>
+                        <AccountDeatils userId = {this.props.user.id}/>
                         :
-                        <PastOrders/>
+                        <PastOrders userId = {this.props.user.id} />
                     }
                 </div>
 

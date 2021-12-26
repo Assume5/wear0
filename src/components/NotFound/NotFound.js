@@ -1,4 +1,3 @@
-import Background from "../Background/Background"
 import {Button} from 'react-bootstrap';
 export default function NotFound(){
     return(

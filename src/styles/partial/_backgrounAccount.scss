@@ -23,6 +23,10 @@
 
     .item {
         flex: auto;
+        
+        @media (max-width: 567px) {
+            width: 95vw;
+        }
     }
 
     .background_img{

@@ -71,7 +71,6 @@ class Signup extends React.Component {
             })
                 .then((response) => response.json())
                 .then((respond) => {
-                    console.log(respond);
                     if (respond === true) {
                         window.location = "./login";
                     } else {
@@ -96,7 +95,6 @@ class Signup extends React.Component {
     }
 
     render() {
-        console.log(`${serverUrl}/register`);
         return (
             <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
                 <main className="pa4 black-80">

@@ -12,8 +12,16 @@
         padding: 15px;
         color: white;
 
+        @media (max-width: 567px) {
+            flex-direction: column;
+        }
+
         > div {
             padding-left: 50px;
+
+            @media (max-width: 567px) {
+                padding-left: 10px;
+            }
         }
 
         .product-filter-content {

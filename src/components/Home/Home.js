@@ -17,6 +17,7 @@ class Home extends Component {
     async componentDidMount() {
         const response = await fetch(`${serverUrl}/productHome`);
         const data = await response.json();
+        console.log(data)
         this.setState({ products: data });
 
         const apparel = Object.fromEntries(

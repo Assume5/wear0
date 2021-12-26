@@ -31,7 +31,6 @@ class ProductDetails extends React.Component {
             let stock = {};
 
             for (let i = 0; i < detailSize.length; i++) {
-                console.log(detailSize[i]);
                 stock[detailSize[i]["productSize"]] = parseInt(
                     detailSize[i]["productSizeStock"]
                 );
@@ -56,8 +55,6 @@ class ProductDetails extends React.Component {
         document.getElementById(size).style.color = "white";
     };
     onAddToCartClick = () => {
-        console.log(this.props.user);
-        console.log(this.state);
         let sizeList = document.querySelectorAll(".SizeList p");
         if (
             (sizeList.length > 0 && this.state.currentSizeClick !== 0) ||
@@ -67,7 +64,6 @@ class ProductDetails extends React.Component {
             if (this.props.user.login) {
                 //if user then store in cart table
                 let id = this.props.user.id;
-                console.log(id)
                 this.setState({ atcLoading: true });
                 fetch(`${serverUrl}/add-to-user-cart`, {
                     method: "post",

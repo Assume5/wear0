@@ -26,7 +26,7 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
             for (let i = 0; i < response.length; i++) {
                 let x = response[i];
                 if (!tempSize.includes(x.productSize)) {
-                    if(x.productSizeStock > 0) {
+                    if (x.productSizeStock > 0) {
                         tempSize.push(x.productSize);
                     }
                 }
@@ -49,6 +49,7 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
             setType(tempType.sort((a, b) => a - b));
             setDepartment(tempDepartment.sort((a, b) => a - b));
         });
+        onWindowClick();
     }, []);
 
     const onFilterClick = (filterType, filter) => {
@@ -58,7 +59,6 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
         } else {
             setFilter((prevArray) => [...prevArray, { [filterType]: filter }]);
         }
-        console.log(filterData);
     };
 
     const onHeaderClick = (currentClass) => {
@@ -86,6 +86,30 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
                 }
             }
         }
+    };
+
+    const onWindowClick = () => {
+        document.addEventListener("click", (e) => {
+            if (
+                e.target.nodeName !== "INPUT" &&
+                e.target.nodeName !== "H5" &&
+                e.target.nodeName !== "LABEL" &&
+                e.target.nodeName !== "svg"
+            ) {
+                for (let i in updateClass) {
+                    let element = document.querySelector(
+                        `[filter-category="${i}"]`
+                    );
+                    setUpdateClass((prevState) => ({
+                        ...prevState,
+                        [i]: false,
+                    }));
+                    if (element) {
+                        element.style.maxHeight = null;
+                    }
+                }
+            }
+        });
     };
 
     return (

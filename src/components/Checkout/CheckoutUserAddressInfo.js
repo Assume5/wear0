@@ -1,6 +1,30 @@
 import {Button} from 'react-bootstrap'
+import { useEffect } from 'react';
+import { serverUrl } from '../../constants/Global';
 
-function CheckoutUserAddressInfo({OnChangeStepClick,OnChangeAddressInput}){
+function CheckoutUserAddressInfo({OnChangeStepClick,OnChangeAddressInput,user ,onRememberAddressClick,onAutoFilled}){
+    
+    useEffect(() => {
+        if(user.login === true) {
+            fetch(`${serverUrl}/autofill-checkout`, {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    userId: user.id,
+                }),
+            }).then((response)=> response.json()).then((data)=>{
+                console.log(data)
+                let autoFilledData={}
+                Object.keys(data[0]).map((x, i) => {
+                    let elem = document.getElementById(x);
+                    elem.value = data[0][x];
+                    autoFilledData[x] = data[0][x]
+                });
+                onAutoFilled(autoFilledData)
+            })
+        }
+    }, []);
+
     return(
         <div>
                 <div className="measure pa2 black-80 w-50 dib">
@@ -39,7 +63,10 @@ function CheckoutUserAddressInfo({OnChangeStepClick,OnChangeAddressInput}){
                     <label className="db fw6 lh-copy f6 black  " htmlFor="phone">Phone</label>
                     <input id="phone" className=" ba b--black-20 pa2 mb2 db w-100" onChange={OnChangeAddressInput} type="text" aria-describedby="name-desc" placeholder="XXXXXXXXXX"maxlength="10"/>
                 </div>
-                <label className="pa0 ma0 lh-copy f6 pointer black d-flex justify-content-start align-items-center ml-2"><input type="checkbox" className=" mr-2"/> Remember this address</label>
+                {
+                    user.login && 
+                    <label className="pa0 ma0 lh-copy f6 pointer black d-flex justify-content-start align-items-center ml-2"><input type="checkbox" className=" mr-2" onClick ={() => onRememberAddressClick()}/> Remember this address</label>
+                }
                 <Button variant="dark"  className="shop m-3 shadow-3 grow fr w-40" onClick={()=>OnChangeStepClick("UserPaymentInfo")}>Continue to Payment</Button>
         </div>
     )

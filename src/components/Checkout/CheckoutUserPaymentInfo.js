@@ -13,6 +13,17 @@ class CheckoutUserPaymentInfo extends React.Component{
         this.setState({checked:!this.state.checked})
         this.props.OnChangeBillingChecked()
     }
+
+    componentDidMount() {
+        let ed = document.getElementById("ed");
+        ed.addEventListener('keydown', ev => {
+            var ipLength = ev.target.value.length;
+            if(ipLength ===2) {
+              ev.target.value += '/';
+            }
+          });
+    }
+
     render(){
         const {OnChangeStepClick,billingInfo,OnChangeBillingInput,OnChangePaymentInput,billingCheck}=this.props
         return(
@@ -46,7 +57,7 @@ class CheckoutUserPaymentInfo extends React.Component{
                     <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
                         <div className="measure pa2 black-80 w-50 dib">
                             <label className="db fw6 lh-copy f6 black " htmlFor="first-name">First Name</label>
-                            <input id="firstname-Billing" onChange={OnChangeBillingInput} className="ba b--black-20 pa2 mb2 db w-100"   type="text" aria-describedby="name-desc" />
+                            <input id="firstnameBilling" onChange={OnChangeBillingInput} className="ba b--black-20 pa2 mb2 db w-100"   type="text" aria-describedby="name-desc" />
                         </div>
                         <div className="measure pa2 black-80 w-50 dib">
                             <label className="db fw6 lh-copy f6 black " htmlFor="last-name">Last Name</label>

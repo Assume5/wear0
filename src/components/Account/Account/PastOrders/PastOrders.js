@@ -1,13 +1,52 @@
 import React from 'react'
 import { Animated } from 'react-animated-css'
+import { serverUrl } from '../../../../constants/Global';
+import { Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 export default class PastOrders extends React.Component {
-
-    onOrderNumberClick = () => {
-        console.log(1)
-        window.location.href = "/orders";
+    constructor() {
+        super()
+        this.state = {
+            orders: []
+        }
     }
+
+    onOrderNumberClick = (orderId) => {
+        window.location.href = `/orders/${orderId}`;
+    }
+
+    async componentDidMount() {
+        const respond = await fetch(
+            `${serverUrl}/get-user-order`,
+            {
+                method: "post",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    userId: this.props.userId
+                }),
+            }
+        );
+        const data = await respond.json()
+        this.setState({orders:data})
+    }
+
     render () {
+        if(this.state.orders.length === 0) {
+            return (
+                <div>
+                    <p>No Past Orders Found</p>
+                    <Button variant="dark" className="shop mx-2" href="./">
+                        <FontAwesomeIcon
+                            className="FontAwesomeIcon"
+                            icon={faShoppingCart}
+                        />{" "}
+                        Shop our product
+                    </Button>
+                </div>
+            )
+        }
         return (
             <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={true}>
                 <div className="past-orders">
@@ -25,50 +64,28 @@ export default class PastOrders extends React.Component {
                             <p className="f6">Total</p> 
                         </div>
                     </div>
-    
-                    <div className="order">
-                        <div className="order-number">
-                            <p className="f6 link dim black db pointer white underline" onClick={this.onOrderNumberClick}># 3</p>
-                        </div>
-                        <div className="order-date">
-                            <p className="f6">July 25, 2021</p>
-                        </div>
-                        <div className="status">
-                            <p className="f6">Confirmed</p>
-                        </div>
-                        <div className="order-total">
-                            <p className="f6">$ 196.95</p> 
-                        </div>
-                    </div>
 
-                    <div className="order">
-                        <div className="order-number">
-                            <p className="f6 link dim black db pointer white underline" onClick={this.onOrderNumberClick}># 2</p>
-                        </div>
-                        <div className="order-date">
-                            <p className="f6">July 24, 2021</p>
-                        </div>
-                        <div className="status">
-                            <p className="f6">Shipped</p>
-                        </div>
-                        <div className="order-total">
-                            <p className="f6">$ 196.95</p> 
-                        </div>
-                    </div>
-                    <div className="order">
-                        <div className="order-number">
-                            <p className="f6 link dim black db pointer white underline" onClick={this.onOrderNumberClick}># 1</p>
-                        </div>
-                        <div className="order-date">
-                            <p className="f6">July 23, 2021</p>
-                        </div>
-                        <div className="status">
-                            <p className="f6">Delivered</p>
-                        </div>
-                        <div className="order-total">
-                            <p className="f6">$ 196.95</p> 
-                        </div>
-                    </div>
+                    {
+                        this.state.orders.map((x,i) => {
+                            console.log(x)
+                            return (
+                                <div className="order">
+                                    <div className="order-number">
+                                        <p className="f6 link dim black db pointer white underline" onClick={()=>this.onOrderNumberClick(x.orderId)}>{x.orderId}</p>
+                                    </div>
+                                    <div className="order-date">
+                                        <p className="f6">{x.orderDate}</p>
+                                    </div>
+                                    <div className="status">
+                                        <p className="f6">{x.orderStatus}</p>
+                                    </div>
+                                    <div className="order-total">
+                                        <p className="f6">${x.totalPrice}</p> 
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </Animated>
         )

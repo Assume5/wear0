@@ -46,6 +46,7 @@ import TermOfUse from "./components/Pages/TermOfUse/TermOfUse";
 //services
 import ContactUs from "./components/Services/ContactUs/ContactUs";
 import OrderStatus from "./components/Services/OrderStatus/OrderStatus";
+import { CheckoutFail } from "./components/Checkout/CheckoutFail";
 
 class App extends React.Component {
     constructor() {
@@ -177,7 +178,7 @@ class App extends React.Component {
                                 />
                             )}
                         />
-                        <Route path="/account" component={Account} />
+                        <Route path="/account" component={()=> <Account user={this.state.user} />} />
                         <Route
                             path="/cart"
                             component={() => <Cart user={this.state.user} />}
@@ -189,6 +190,12 @@ class App extends React.Component {
                                     user={this.state.user}
                                     cartNumber={this.state.user.cartNumber}
                                 />
+                            )}
+                        />
+                        <Route
+                            path="/checkout-fail"
+                            component={() => (
+                                <CheckoutFail/>
                             )}
                         />
                         <Route

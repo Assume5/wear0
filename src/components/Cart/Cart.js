@@ -16,8 +16,6 @@ class Cart extends React.Component {
         };
     }
     async componentDidMount() {
-        console.log(this.props);
-        //if i fetch information form server
         if (this.props.user.id) {
             const respond = await fetch(
                 `${serverUrl}/get-user-cart-information`,
@@ -58,7 +56,7 @@ class Cart extends React.Component {
 
     async cartIncrement(product) {
         const respond = await fetch(`${serverUrl}/update-cart`, {
-            method: "post",
+            method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 userId: this.props.user.id,
@@ -77,7 +75,7 @@ class Cart extends React.Component {
 
     async cartDecrement(product) {
         const respond = await fetch(`${serverUrl}/update-cart`, {
-            method: "post",
+            method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 userId: this.props.user.id,
@@ -96,7 +94,7 @@ class Cart extends React.Component {
 
     async cartRemove(product) {
         const respond = await fetch(`${serverUrl}/update-cart`, {
-            method: "post",
+            method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 userId: this.props.user.id,

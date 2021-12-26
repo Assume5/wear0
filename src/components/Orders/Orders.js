@@ -2,7 +2,9 @@ import React from 'react'
 import Informations from './Informations/Informations'
 import OrdersCart from './Carts/OrdersCart'
 import logo_icon from '../Navbar/logo.png'
-import {BrowserView, MobileView} from 'react-device-detect';
+import {MobileView} from 'react-device-detect';
+import { serverUrl } from '../../constants/Global';
+
 class Orders extends React.Component{
     constructor(){
         super() 
@@ -10,12 +12,25 @@ class Orders extends React.Component{
             products:{},
             information:{},
             loaded:false,
-            subtotal:0
+            subtotal:0,
+            cardNumber: ""
         }
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         //getting cart from db
+        const currenturl = document.URL;
+        const orderNumber = currenturl.substring(currenturl.lastIndexOf("/") + 1);
+        console.log(orderNumber)
+        const response = await fetch(`${serverUrl}/orders/${orderNumber}`)
+        const data = await response.json()
+        console.log(data)
+        const responseCard = await fetch(`${serverUrl}/get-last-four/${orderNumber}`)
+        const cardNumber = await responseCard.json()
+        console.log(cardNumber)
+        const responseProducts = await fetch(`${serverUrl}/order-details/${orderNumber}`)
+        const productDetails = await responseProducts.json()
+        console.log(productDetails)
         const products={
             "1-45":{
                 productimage:"./TestingImage/brown.png",
@@ -62,14 +77,11 @@ class Orders extends React.Component{
         }
 
         if(Object.keys(products).length && Object.keys(information).length){
-            this.setState({products:products})
-            this.setState({information:information})
+            this.setState({products:productDetails})
+            this.setState({information:data})
+            this.setState({cardNumber:cardNumber})
             this.setState({loaded:true})
-            let subtotal=0
-            for(let i in products){
-                subtotal+=(products[i].total*products[i].quantity)
-            }
-            this.setState({subtotal:subtotal})
+            this.setState({subtotal:data[0]["totalPrice"]})
         }
     }
     render(){
@@ -87,7 +99,7 @@ class Orders extends React.Component{
                         <img src = {logo_icon} alt="" className="logo pointer" style={{marginTop:'5%'}} onClick={event =>  window.location.href='/'}/>
                     </MobileView>
                     <div className="order-status">
-                        <Informations information={this.state.information}/>
+                        <Informations information={this.state.information} card = {this.state.cardNumber}/>
                         <OrdersCart products={this.state.products} subtotal={this.state.subtotal}/>
                     </div>
                 </div>

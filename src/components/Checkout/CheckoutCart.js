@@ -1,5 +1,6 @@
 import React from 'react'
 import {Animated} from "react-animated-css";
+import { serverUrl } from '../../constants/Global';
 function CheckoutCart({products,subtotal}){
     return(
         <div>
@@ -9,15 +10,15 @@ function CheckoutCart({products,subtotal}){
                     return(
                         <div className="CheckoutCartInfo ml3">
                             <div className="CheckoutCartDetails">
-                                <img src={products[id].productimage} alt="" className="dib"/>
-                                <h1 className="f6 pa1 black-100">{products[id].productname}</h1>
+                                <img src={`${serverUrl}${products[id].productImage}`} alt="" className="dib"/>
+                                <h1 className="f6 pa1 black-100">{products[id].productName}</h1>
                             </div>
                             <div className="CheckoutCartDetails">
                             <p className="f6 dib pa1 black-60">Quantity : {products[id].quantity}</p> <br></br>
-                            <p className="f6 dib pa1 black-60">Size : One Size</p>
+                            <p className="f6 dib pa1 black-60">Size : {`${products[id].productSize === '0' ? 'One Size' : products[id].productSize}`}</p>
                             </div>
                             <div className="CheckoutCartDetails">
-                                <h6 className="f6 pa2">Price : ${products[id].total}</h6>
+                                <h6 className="f6 pa2">Price : ${products[id].productPrice}</h6>
                             </div>
                             <br></br>
                         </div>
@@ -37,7 +38,7 @@ function CheckoutCart({products,subtotal}){
             <br></br>
             <div className="CheckoutRecap">
                 <p className="f6 fl ml4">Total</p>
-                <p className="f6 fr ml4">${subtotal+15}</p>
+                <p className="f6 fr ml4">${parseFloat(subtotal)+15}</p>
             </div>
             </Animated>
         </div>

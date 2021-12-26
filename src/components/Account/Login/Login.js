@@ -77,7 +77,6 @@ class Login extends React.Component {
                         }
                         if (getCookie("_guest")) {
                             // removeCookie("_guest");
-                            console.log(1)
                             fetch(`${serverUrl}/transfer-cart`, {
                                 method: "post",
                                 headers: { "Content-Type": "application/json" },
@@ -91,9 +90,9 @@ class Login extends React.Component {
                                     console.log(res)
                                     if (res === "true") {
                                         removeCookie("_guest");
+                                        window.location = "./account"
                                     }
                                 });
-                            window.location = "./account"
                         }
 
                     } else {

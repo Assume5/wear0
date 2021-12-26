@@ -5,19 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCheck, faTruck, faHome, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import {Animated} from "react-animated-css";
 import {Button } from 'react-bootstrap';
-export default function Informations({information}){
+export default function Informations({information, card}){
     console.log(information)
+    information = information[0]
     //shipping info
-    let shipping = information['shipping']
-    let shippingFullName = shipping['first_name'] + ' ' + shipping['last_name']
-    let shippingFullAddress = shipping['address'] + ' ' + shipping['address_line_2'];
-    let shippingCityStateZip = shipping['city'] + ' ' +shipping['state'] + ' ' + shipping['Zipcode']
+    let shippingFullName = information.shippingName
+    let shippingFullAddress =`${information.shippingAddress1} ${information.shippingAddress2}`;
+    let shippingCityStateZip = `${information.shippingCity} ${information.shippingState} ${information.shippingZip}`
     //billing info
-    let billing = information['billing']
-    let billingFullName = billing['first_name'] + ' ' + billing['last_name']
-    let billingFullAddress = billing['address'] + ' ' + billing['address_line_2'];
-    let billingCityStateZip = billing['city'] + ' ' +billing['state'] + ' ' + billing['Zipcode']
-    if(information.status === "Shipped" && document.querySelector(".divider-ship") ){
+    let billingFullName = information.cardHolder
+    let billingFullAddress = information.billingAddress1
+    let billingCityStateZip = `${information.billingCity} ${information.billingState} ${information.billingZip}`
+    if(information.orderStatus === "Shipped" && document.querySelector(".divider-ship") ){
         document.querySelector(".divider-ship").style.borderColor = "green"
     }
     else if (information.status === "Delivered" && document.querySelector(".divider-ship")){
@@ -63,17 +62,16 @@ export default function Informations({information}){
                             <p className="f6">{shippingFullName}</p>
                             <p className="f6">{shippingFullAddress}</p>
                             <p className="f6">{shippingCityStateZip}</p>
-                            <p className="f6">{shipping['Phone']}</p>
+                            <p className="f6">{information.phone}</p>
                         </div>
                         <div className="billing-information">
                         <h1 className="f6">Customer Payment Card</h1>
-                            <p className="f6">XXXX {information.card}</p>
+                            <p className="f6">XXXX {card}</p>
                             <br/>
                             <h1 className="f6">Billing Address</h1>
                             <p className="f6">{billingFullName}</p>
                             <p className="f6">{billingFullAddress}</p>
                             <p className="f6">{billingCityStateZip}</p>
-                            <p className="f6">{billing['Phone']}</p>
                         </div>
                     </div>
                 </div>
