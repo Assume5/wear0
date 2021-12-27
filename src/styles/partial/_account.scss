@@ -2,7 +2,7 @@
     align-items: unset !important;
 
     p{
-        color: white;
+        color: black;
         margin: 3%;
     }
 
@@ -17,7 +17,8 @@
 
     &.background {
         padding-top: 80px;
-        
+        background-color: #fff !important;
+
         @media (max-width: 576px) {
             justify-content: flex-start;
         }

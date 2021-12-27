@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { fetchProductSizes } from "../../constants/GlobalFunction";
-export const ProductFilter = ({ category, setFilter, filterData }) => {
+export const ProductFilter = ({ category, setFilter, filterData, setAlphabetical, setPopular }) => {
     const [size, setSize] = useState([]);
     const [brand, setBrand] = useState([]);
     const [color, setColor] = useState([]);
@@ -14,7 +14,11 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
         color: false,
         type: false,
         department: false,
+        orderByAlphabetical: false,
+        orderByPopular: false,
     });
+    const orderByAlphabetical = ["A-Z", "Z-A"];
+    const orderByPopular = ["Most Popular", "Least Popular"];
 
     useEffect(() => {
         fetchProductSizes(category).then((response) => {
@@ -54,7 +58,7 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
 
     const onFilterClick = (filterType, filter) => {
         if (filterData.some((e) => e[filterType] === filter)) {
-            let filtered = filterData.filter((e) => e[filterType] != filter);
+            let filtered = filterData.filter((e) => e[filterType] !== filter);
             setFilter(filtered);
         } else {
             setFilter((prevArray) => [...prevArray, { [filterType]: filter }]);
@@ -88,6 +92,22 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
         }
     };
 
+    const onAlphabetical = (checkbox,item) => {
+        let checkboxes = document.querySelectorAll('[filter-category="orderByAlphabetical"] input[type=checkbox]');
+        checkboxes.forEach((item) => {
+            if (item !== checkbox.target) item.checked = false;
+        });
+        setAlphabetical(item)
+    };
+
+    const onPopular = (checkbox,item) => {
+        let checkboxes = document.querySelectorAll('[filter-category="orderByPopular"] input[type=checkbox]');
+        checkboxes.forEach((item) => {
+            if (item !== checkbox.target) item.checked = false;
+        });
+        setPopular(item)
+    };
+
     const onWindowClick = () => {
         document.addEventListener("click", (e) => {
             if (
@@ -114,8 +134,78 @@ export const ProductFilter = ({ category, setFilter, filterData }) => {
 
     return (
         <div className="product-filter">
-            <div className="product-filter-title">
-                <p>Filter:</p>
+            <div
+                className={`product-filter-content ${
+                    updateClass["orderByAlphabetical"]
+                        ? "collapse-show"
+                        : "collapse-hide"
+                }`}
+            >
+                <div
+                    className="header"
+                    onClick={() => onHeaderClick("orderByAlphabetical")}
+                >
+                    <h5>
+                        Alphabetical <FontAwesomeIcon icon={faChevronDown} />
+                    </h5>
+                </div>
+                <div
+                    className="filter-content"
+                    filter-category="orderByAlphabetical"
+                >
+                    {orderByAlphabetical.map((item) => {
+                        return (
+                            <div className="filter-item" key={item}>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        onClick={(e) => {
+                                            onAlphabetical(e,item);
+                                        }}
+                                    />
+                                    {item}
+                                </label>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            <div
+                className={`product-filter-content ${
+                    updateClass["orderByPopular"]
+                        ? "collapse-show"
+                        : "collapse-hide"
+                }`}
+            >
+                <div
+                    className="header"
+                    onClick={() => onHeaderClick("orderByPopular")}
+                >
+                    <h5>
+                        Popular <FontAwesomeIcon icon={faChevronDown} />
+                    </h5>
+                </div>
+                <div
+                    className="filter-content"
+                    filter-category="orderByPopular"
+                >
+                    {orderByPopular.map((item) => {
+                        return (
+                            <div className="filter-item" key={item}>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        onClick={(e) => {
+                                            onPopular(e,item);
+                                        }}
+                                    />
+                                    {item}
+                                </label>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
 
             <div

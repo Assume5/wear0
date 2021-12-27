@@ -96,25 +96,25 @@ class Signup extends React.Component {
 
     render() {
         return (
-            <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+            <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
                 <main className="pa4 black-80">
                     <div className="measure">
                         <fieldset
                             id="sign_up"
                             className="ba b--transparent ph0 mh0"
                         >
-                            <legend className="f1 fw6 ph0 mh0 white">
+                            <legend className="f1 fw6 ph0 mh0 black">
                                 Register
                             </legend>
                             <div className="mt3">
                                 <label
-                                    className="db fw6 lh-copy f6 white"
+                                    className="db fw6 lh-copy f6 black"
                                     htmlFor="email-address"
                                 >
                                     Name*
                                 </label>
                                 <input
-                                    className={`pa2 input-reset ba bg-transparent hover-bg-black white w-100 ${
+                                    className={`pa2 input-reset ba bg-transparent hover-bg-black black w-100 ${
                                         this.state.nameErrorMessage.length > 0
                                             ? "input-fail"
                                             : ""
@@ -130,13 +130,13 @@ class Signup extends React.Component {
                             </div>
                             <div className="mt3">
                                 <label
-                                    className="db fw6 lh-copy f6 white"
+                                    className="db fw6 lh-copy f6 black"
                                     htmlFor="email-address"
                                 >
                                     Email*
                                 </label>
                                 <input
-                                    className={`pa2 input-reset ba bg-transparent hover-bg-black white w-100 ${
+                                    className={`pa2 input-reset ba bg-transparent hover-bg-black black w-100 ${
                                         this.state.emailErrorMessage.length > 0
                                             ? "input-fail"
                                             : ""
@@ -152,13 +152,13 @@ class Signup extends React.Component {
                             </div>
                             <div className="mv3">
                                 <label
-                                    className="db fw6 lh-copy f6 white"
+                                    className="db fw6 lh-copy f6 black"
                                     htmlFor="password"
                                 >
                                     Password*
                                 </label>
                                 <input
-                                    className={`pa2 input-reset ba bg-transparent hover-bg-black white w-100 ${
+                                    className={`pa2 input-reset ba bg-transparent hover-bg-black black w-100 ${
                                         this.state.passwordErrorMessage.length >
                                         0
                                             ? "input-fail"
@@ -175,9 +175,9 @@ class Signup extends React.Component {
                                 </p>
                             </div>
                         </fieldset>
-                        <div className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white">
+                        <div className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib black">
                             <input
-                                className="bg-transparent pointer white border-0"
+                                className="bg-transparent pointer black border-0"
                                 type="submit"
                                 value="Register"
                                 onClick={this.onRegisterButton}
@@ -193,7 +193,7 @@ class Signup extends React.Component {
                         </div>
                         <div className="lh-copy mt3">
                             <p
-                                className="f6 link dim black db pointer white"
+                                className="f6 link dim black db pointer black"
                                 onClick={this.onLoginClick}
                             >
                                 Sign In

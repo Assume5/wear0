@@ -3,8 +3,26 @@ import { serverUrl } from "../../constants/Global";
 import Content from "../Content/Content";
 import { onProductCardClick } from "../../constants/GlobalFunction";
 import { fetchProductSizes } from "../../constants/GlobalFunction";
-export const ProductContent = ({ data, filterData, category }) => {
+export const ProductContent = ({ data, filterData, category, alphabetical, popular }) => {
     const [productSizes, setProductSizes] = useState([]);
+    if(alphabetical === "A-Z") {
+        data = data.sort((a,b) => a.productName.localeCompare(b.productName)).reverse()
+        console.log(data)
+    }
+
+    else if(alphabetical === "Z-A") {
+        data.sort((a,b) => a.productName.localeCompare(b.productName))
+        console.log(data)
+    }
+
+    if(popular === "Most Popular") {
+        data.sort((a,b) => a.productCheckout - b.productCheckout)
+    }
+
+    else if(popular === "Least Popular") {
+        data.sort((a,b) => b.productCheckout - a.productCheckout)
+    }
+
     useEffect(() => {
         fetchProductSizes(category).then((response) => {
             let tempData = {};
@@ -29,10 +47,12 @@ export const ProductContent = ({ data, filterData, category }) => {
                 .slice(0)
                 .reverse()
                 .map((data, i) => {
+                    console.log(data)
                     let filtered = false;
                     if (filterData.length === 0) filtered = true;
                     for (let j = 0; j < filterData.length; j++) {
                         let key = Object.keys(filterData[j])[0];
+                        console.log(data)
                         if (key === "productSize") {
                             if(productSizes[0][data.productId].includes(filterData[j][key])) {
                                 filtered=true;

@@ -7,6 +7,8 @@ import { ProductContent } from "../ProductContent/ProductContent";
 function New() {
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState([]);
+    const [alphabetical, setAlphabetical] = useState("");
+    const [popular, setPopular] = useState("");
     const category = "New";
 
     useEffect(() => {
@@ -31,11 +33,15 @@ function New() {
                     category={category}
                     setFilter={setFilter}
                     filterData={filter}
+                    setAlphabetical={setAlphabetical}
+                    setPopular={setPopular}
                 />
                 <ProductContent
                     data={data}
                     filterData={filter}
                     category={category}
+                    alphabetical={alphabetical}
+                    popular={popular}
                 />
             </div>
         </div>

@@ -8,9 +8,9 @@
         padding: 0px 15px;
         display: flex;
         text-align: left !important;
-        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        background: #fff !important;
         padding: 15px;
-        color: white;
+        color: black;
 
         @media (max-width: 567px) {
             flex-direction: column;
@@ -38,8 +38,8 @@
             }
 
             .filter-content {
-                background: white;
-                color: black;
+                background: black;
+                color: white;
                 border-radius: 10px;
                 width: 300px;
                 max-height: 0px;

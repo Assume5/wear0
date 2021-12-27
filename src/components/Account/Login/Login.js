@@ -111,25 +111,25 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <article className="br3 ba b--white-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center black">
+            <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center black">
                 <main className="pa4 black-80">
                     <div className="measure">
                         <fieldset
                             id="sign_up"
                             className="ba b--transparent ph0 mh0"
                         >
-                            <legend className="f1 fw6 ph0 mh0 white">
+                            <legend className="f1 fw6 ph0 mh0 black">
                                 Sign In
                             </legend>
                             <div className="mt3">
                                 <label
-                                    className="db fw6 lh-copy f6 white"
+                                    className="db fw6 lh-copy f6 black"
                                     htmlFor="email-address"
                                 >
                                     Email
                                 </label>
                                 <input
-                                    className="pa2 input-reset ba bg-transparent white w-100"
+                                    className="pa2 input-reset ba bg-transparent black w-100"
                                     type="email"
                                     name="email-address"
                                     id="email-address"
@@ -139,13 +139,13 @@ class Login extends React.Component {
                             </div>
                             <div className="mv3">
                                 <label
-                                    className="db fw6 lh-copy f6 white"
+                                    className="db fw6 lh-copy f6 black"
                                     htmlFor="password"
                                 >
                                     Password
                                 </label>
                                 <input
-                                    className="b pa2 input-reset ba bg-transparent hover-bg-black white w-100"
+                                    className="b pa2 input-reset ba bg-transparent hover-bg-black black w-100"
                                     type="password"
                                     name="password"
                                     id="password"
@@ -156,7 +156,7 @@ class Login extends React.Component {
                             <p className="error-message">
                                 {this.state.errorMessage}
                             </p>
-                            <label className="pa0 ma0 lh-copy f6 pointer white">
+                            <label className="pa0 ma0 lh-copy f6 pointer black">
                                 <input
                                     type="checkbox"
                                     onClick={this.onRememberMe}
@@ -164,9 +164,9 @@ class Login extends React.Component {
                                 Remember me for 7 days
                             </label>
                         </fieldset>
-                        <div className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib white">
+                        <div className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib black">
                             <input
-                                className="bg-transparent pointer white border-0"
+                                className="bg-transparent pointer black border-0"
                                 type="submit"
                                 value="Sign in"
                                 onClick={this.onSubmitSignIn}
@@ -183,7 +183,7 @@ class Login extends React.Component {
                         </div>
                         <div className="lh-copy mt3">
                             <p
-                                className="f6 link dim black db pointer white"
+                                className="f6 link dim black db pointer black"
                                 onClick={this.onRegisterClick}
                             >
                                 Register

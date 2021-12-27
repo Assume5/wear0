@@ -60,7 +60,7 @@ export default class AccountDeatils extends React.Component {
                 <div className="account-detail-form">
                     <div className="measure pa2 black-80 w-30 dib">
                         <label
-                            className="db fw6 lh-copy f6 white "
+                            className="db fw6 lh-copy f6 black "
                             htmlFor="first-name"
                         >
                             First Name
@@ -74,7 +74,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="measure pa2 black-80 w-30 dib">
                         <label
-                            className="db fw6 lh-copy f6 white "
+                            className="db fw6 lh-copy f6 black "
                             htmlFor="last-name"
                         >
                             Last Name
@@ -88,7 +88,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="pa2 black-80 w-60 center">
                         <label
-                            className="db fw6 lh-copy f6 white "
+                            className="db fw6 lh-copy f6 black "
                             htmlFor="address"
                         >
                             Phone
@@ -102,7 +102,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="pa2 black-80 w-60 center">
                         <label
-                            className="db fw6 lh-copy f6 white "
+                            className="db fw6 lh-copy f6 black "
                             htmlFor="address"
                         >
                             Address
@@ -116,7 +116,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="pa2 black-80 w-60 center">
                         <label
-                            className="db fw6 lh-copy f6 white "
+                            className="db fw6 lh-copy f6 black "
                             htmlFor="address"
                         >
                             Address Line 2
@@ -130,7 +130,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="measure pa2  black-80 w-20 dib">
                         <label
-                            className="db fw6 lh-copy f6 white"
+                            className="db fw6 lh-copy f6 black"
                             htmlFor="city"
                         >
                             City
@@ -144,7 +144,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="measure pa2  black-80 w-20 dib">
                         <label
-                            className="db fw6 lh-copy f6 white  "
+                            className="db fw6 lh-copy f6 black  "
                             htmlFor="state"
                         >
                             State
@@ -160,7 +160,7 @@ export default class AccountDeatils extends React.Component {
                     </div>
                     <div className="measure pa2 black-80 w-20 dib">
                         <label
-                            className="db fw6 lh-copy f6 white  "
+                            className="db fw6 lh-copy f6 black  "
                             htmlFor="zipcode"
                         >
                             ZipCode

@@ -4,7 +4,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     position: relative;
-    background-color: #201d37;
+    background-color: #f8f9fa !important;
     display: flex;
     flex-direction: row;
     align-content: flex-start;
@@ -12,11 +12,6 @@
     justify-content: center;
     resize: both;
     /* visibility: hidden; */
-
-    h1,
-    h5 {
-        color: white;
-    }
 
     .background_img {
         padding: 3%;
@@ -32,6 +27,11 @@
 
     .background_text {
         margin: 3%;
+        h1,
+        h5,
+        p {
+            color: black;
+        }
     }
 
     .shop {
@@ -49,7 +49,6 @@
     h5 {
         color: white;
     }
-
 }
 
 @media (max-width: 800px) {
@@ -79,4 +78,3 @@
         margin: 2%;
     }
 }
-

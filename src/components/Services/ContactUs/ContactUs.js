@@ -9,36 +9,36 @@ export default function ContactUs(){
                 <h5 className="f3">Contact Us</h5>
                 <p className="f6">Available Mon-Fri 9:00 AM - 5:30 PM EST</p>
                 <div className="mt3 black-025 dib ma3">
-                      <label className="db fw6 lh-copy f6 white" htmlFor="email-address">Email</label>
+                      <label className="db fw6 lh-copy f6 black" htmlFor="email-address">Email</label>
                       <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
                         type="email"
                         name="email-address"
                         id="email-address"
                       />
                 </div>
                 <div className="mt3 black-025 dib ma3">
-                      <label className="db fw6 lh-copy f6 white" htmlFor="name">Name</label>
+                      <label className="db fw6 lh-copy f6 black" htmlFor="name">Name</label>
                       <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
                         type="text"
                         name="name"
                         id="fullname"
                       />
                 </div>
                 <div className="mt3 black-025 ma3">
-                      <label className="db fw6 lh-copy f6 white" htmlFor="Phone">Phone</label>
+                      <label className="db fw6 lh-copy f6 black" htmlFor="Phone">Phone</label>
                       <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
                         type="text"
                         name="Phone"
                         id="Phone"
                       />
                 </div>
                 <div className="mt3 black-025 ma3">
-                      <label className="db fw6 lh-copy f6 white" htmlFor="Message">Message</label>
+                      <label className="db fw6 lh-copy f6 black" htmlFor="Message">Message</label>
                       <textarea
-                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-black w-100 white"
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
                         type="text"
                         name="Message"
                         id="Message"

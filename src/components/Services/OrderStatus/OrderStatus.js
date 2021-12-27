@@ -36,23 +36,23 @@ export default function OrderStatus() {
                 <h5 className="f3">Order Status</h5>
                 <div className="mt3 black-025 dib ma3">
                     <label
-                        className="db fw6 lh-copy f6 white"
+                        className="db fw6 lh-copy f6 black"
                         htmlFor="email-address"
                     >
                         Order Number
                     </label>
                     <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
                         type="text"
                         id="order-number"
                     />
                 </div>
                 <div className="mt3 black-025 dib ma3">
-                    <label className="db fw6 lh-copy f6 white" htmlFor="name">
+                    <label className="db fw6 lh-copy f6 black" htmlFor="name">
                         Email Address
                     </label>
                     <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
                         type="email"
                         id="order-email"
                     />

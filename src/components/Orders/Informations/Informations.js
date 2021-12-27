@@ -19,7 +19,7 @@ export default function Informations({information, card}){
     if(information.orderStatus === "Shipped" && document.querySelector(".divider-ship") ){
         document.querySelector(".divider-ship").style.borderColor = "green"
     }
-    else if (information.status === "Delivered" && document.querySelector(".divider-ship")){
+    else if (information.orderStatus === "Delivered" && document.querySelector(".divider-ship")){
         document.querySelector(".divider-ship").style.borderColor = "green"
         document.querySelector(".divider-delivery").style.borderColor = "green"
     }
