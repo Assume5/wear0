@@ -27,9 +27,6 @@ function HomeNewcollection({productdetailsNewCollection,isPosition,onProductCard
                         key={data['productId']}
                     />
                 )
-                else {
-                    return(<></>)
-                }
             })
 
         }

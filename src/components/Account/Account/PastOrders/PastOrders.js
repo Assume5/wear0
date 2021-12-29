@@ -67,9 +67,8 @@ export default class PastOrders extends React.Component {
 
                     {
                         this.state.orders.map((x,i) => {
-                            console.log(x)
                             return (
-                                <div className="order">
+                                <div className="order" key={i}>
                                     <div className="order-number">
                                         <p className="f6 link dim black db pointer white underline" onClick={()=>this.onOrderNumberClick(x.orderId)}>{x.orderId}</p>
                                     </div>

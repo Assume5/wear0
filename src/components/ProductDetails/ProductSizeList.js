@@ -17,9 +17,9 @@ class ProductSizeList extends React.Component{
                             }
                             return(
                                 stock[size]>0?
-                                    <p className="f4 br3 SizeInStock" id={size} onClick={()=>onSelectSizeClick(size)}>{size}</p>
+                                    <p key = {i} className="f4 br3 SizeInStock" id={size} onClick={()=>onSelectSizeClick(size)}>{size}</p>
                                 :
-                                    <p className="f4 br3 SizeNoStock" id={size}>{size}</p>
+                                    <p key = {i} className="f4 br3 SizeNoStock" id={size}>{size}</p>
 
                             )
                         })

@@ -84,7 +84,6 @@ class Checkout extends React.Component {
 
     onAutoFilled = (data) => {
         this.setState({addressInfo:data})
-        console.log(data)
     }
 
     onRememberAddressClick = () => {
@@ -366,7 +365,6 @@ class Checkout extends React.Component {
 
     onConfirmClick = () => {
         return new Promise((resolve, reject) => {
-            console.log(this.state);
             fetch(`${serverUrl}/checkout`, {
                 method: "post",
                 headers: { "Content-Type": "application/json" },

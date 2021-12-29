@@ -8,44 +8,44 @@ export default function ContactUs(){
             <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1500} animationOutDuration={1000} isVisible={true}>
                 <h5 className="f3">Contact Us</h5>
                 <p className="f6">Available Mon-Fri 9:00 AM - 5:30 PM EST</p>
-                <div className="mt3 black-025 dib ma3">
-                      <label className="db fw6 lh-copy f6 black" htmlFor="email-address">Email</label>
+                <div className="mt3 white-025 dib ma3">
+                      <label className="db fw6 lh-copy f6 white" htmlFor="email-address">Email</label>
                       <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
+                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
                         type="email"
                         name="email-address"
                         id="email-address"
                       />
                 </div>
-                <div className="mt3 black-025 dib ma3">
-                      <label className="db fw6 lh-copy f6 black" htmlFor="name">Name</label>
+                <div className="mt3 white-025 dib ma3">
+                      <label className="db fw6 lh-copy f6 white" htmlFor="name">Name</label>
                       <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
+                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
                         type="text"
                         name="name"
                         id="fullname"
                       />
                 </div>
-                <div className="mt3 black-025 ma3">
-                      <label className="db fw6 lh-copy f6 black" htmlFor="Phone">Phone</label>
+                <div className="mt3 white-025 ma3">
+                      <label className="db fw6 lh-copy f6 white" htmlFor="Phone">Phone</label>
                       <input
-                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
+                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
                         type="text"
                         name="Phone"
                         id="Phone"
                       />
                 </div>
-                <div className="mt3 black-025 ma3">
-                      <label className="db fw6 lh-copy f6 black" htmlFor="Message">Message</label>
+                <div className="mt3 white-025 ma3">
+                      <label className="db fw6 lh-copy f6 white" htmlFor="Message">Message</label>
                       <textarea
-                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100 black"
+                        className="pa2 input-reset ba bg-transparent hover-bg-white hover-white w-100 white"
                         type="text"
                         name="Message"
                         id="Message"
                         rows="8"
                       />
                 </div>
-                <Button size="md" variant="dark" className="shadow-5 grow br3 w-50">Send Message</Button>
+                <Button size="md" variant="dark" className="shadow-5 grow br3 w-50 mb-5">Send Message</Button>
 
                 <div className="row" >
                     <div className="containermails">

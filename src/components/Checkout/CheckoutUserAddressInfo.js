@@ -13,7 +13,6 @@ function CheckoutUserAddressInfo({OnChangeStepClick,OnChangeAddressInput,user ,o
                     userId: user.id,
                 }),
             }).then((response)=> response.json()).then((data)=>{
-                console.log(data)
                 let autoFilledData={}
                 Object.keys(data[0]).map((x, i) => {
                     let elem = document.getElementById(x);

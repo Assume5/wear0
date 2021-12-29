@@ -87,7 +87,6 @@ class Login extends React.Component {
                             })
                                 .then((response) => response.json())
                                 .then((res) => {
-                                    console.log(res)
                                     if (res === "true") {
                                         removeCookie("_guest");
                                         window.location = "./account"
