@@ -1,6 +1,4 @@
-# Wear0 Server
-
-##### This is Wear0 server, for the front-end please visit https://github.com/Assume5/wear0
+# Wear0
 
 ## Requirement
 
@@ -18,8 +16,18 @@
 
 ## Using the app
 
+### Server
 ```
-cd wear0-server
+cd wear0
 npm install
 npm start
 ```
+
+### Client
+```
+cd client
+npm install
+npm run start
+```
+
+
