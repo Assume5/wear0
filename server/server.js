@@ -1,3 +1,4 @@
+const PORT = 8080;
 const express = require("express");
 const bodyParser = require("body-parser"); //https://www.npmjs.com/package/body-parser
 const bcrypt = require("bcrypt"); //https://www.npmjs.com/package/bcrypt
@@ -36,9 +37,10 @@ const salt = bcrypt.genSaltSync(saltRounds);
 
 //modify host, user, password, and database to yours.
 var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
+    host: "us-cdbr-east-05.cleardb.net",
+    user: "bd2e1405f6e32a",
+    password: "67ff4083",
+    database: "heroku_6602a6e49b0e693",
 });
 
 function checkIfExists(table, col, value) {
@@ -572,7 +574,7 @@ app.post("/checkout", (req, res) => {
                     console.log(err);
                 }
             });
-            let productCheckOut = {}
+            let productCheckOut = {};
             for (let i in productsDetail) {
                 let product = productsDetail[i];
                 const {
@@ -583,8 +585,8 @@ app.post("/checkout", (req, res) => {
                     quantity,
                     productSize,
                 } = product;
-                if(productCheckOut[productid] === undefined) {
-                    productCheckOut[productid] = 0
+                if (productCheckOut[productid] === undefined) {
+                    productCheckOut[productid] = 0;
                 }
                 const detailSql = `INSERT INTO orderdetails VALUES('${orderId}','${productid}','${productImage}','${productName}','${productPrice}','${productSize}','${quantity}')`;
                 connection.query(detailSql, (err, result) => {
@@ -607,18 +609,16 @@ app.post("/checkout", (req, res) => {
                         });
                     }
                 );
-
-
             }
             //add checkout count
 
-            for(let i in productCheckOut) {
-                let addCountSql = `update products set productCheckout = productCheckout + 1 where productId = '${i}'`
-                connection.query(addCountSql, (err,result) => {
-                    if(err) console.log(err)
-                })
+            for (let i in productCheckOut) {
+                let addCountSql = `update products set productCheckout = productCheckout + 1 where productId = '${i}'`;
+                connection.query(addCountSql, (err, result) => {
+                    if (err) console.log(err);
+                });
             }
-            
+
             if (remember) {
                 const updateSql = `UPDATE USERS SET first = '${shippingAddress.firstname}', last = '${shippingAddress.lastname}', address1 = '${shippingAddress1}',
         address2 = '${shippingAddress2}', city = '${shippingCity}', state = '${shippingState}', zip = '${shippingZip}', phone = ${phone}`;
@@ -771,7 +771,7 @@ app.get("/order-details/:orderNumber", (req, res) => {
     });
 });
 
-app.listen(8080, function () {
-    console.log("Listing port 8080");
+app.listen(process.env.PORT || PORT, function () {
+    console.log(`Listing port ${process.env.PORT || PORT}`);
     sqlInit.mysqlInit(connection); //this will create table if not yet inserted
 });

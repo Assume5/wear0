@@ -1,2 +1,2 @@
-const serverUrl = 'http://localhost:8080'
+const serverUrl = 'https://wear0-server.herokuapp.com'
 export { serverUrl }
