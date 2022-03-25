@@ -36,11 +36,15 @@ const salt = bcrypt.genSaltSync(saltRounds);
 */
 
 //modify host, user, password, and database to yours.
+const dbHost = "us-cdbr-east-05.cleardb.net";
+const dbUser = "bd2e1405f6e32a";
+const dbPassword = "67ff4083";
+const dbSchema = "heroku_6602a6e49b0e693";
 var connection = mysql.createPool({
-    host: "us-cdbr-east-05.cleardb.net",
-    user: "bd2e1405f6e32a",
-    password: "67ff4083",
-    database: "heroku_6602a6e49b0e693",
+    host: dbHost,
+    user: dbUser,
+    password: dbPassword,
+    database: dbSchema,
 });
 
 function checkIfExists(table, col, value) {

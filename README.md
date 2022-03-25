@@ -1,4 +1,7 @@
 # Wear0
+### Demo Link: https://623e30bc44137100088325e7--tourmaline-granita-61f726.netlify.app/
+
+## Run it Locally
 
 ## Requirement
 
@@ -19,13 +22,13 @@
 ### Server
 ```
 cd wear0
+cd server
 npm install
 npm start
 ```
 
 ### Client
 ```
-cd client
 npm install
 npm run start
 ```
