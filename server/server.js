@@ -36,7 +36,7 @@ const salt = bcrypt.genSaltSync(saltRounds);
 */
 
 //modify host, user, password, and database to yours.
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
     host: "us-cdbr-east-05.cleardb.net",
     user: "bd2e1405f6e32a",
     password: "67ff4083",
